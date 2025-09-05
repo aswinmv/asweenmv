@@ -86,7 +86,7 @@ function App() {
         <div className="max-w-4xl mx-auto px-6">
           
           {/* Header/Hero */}
-          <header className="py-16 sm:py-24">
+          <header className="py-8 sm:py-12">
             <div className="max-w-2xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Aswin MV
