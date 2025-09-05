@@ -151,7 +151,7 @@ function App() {
                     </h3>
                     <p className="text-sm text-gray-600 mb-3">Expertise Areas</p>
                     <div className="flex flex-wrap gap-2 mt-3">
-                      {['Product Design', 'Graphic Design', 'Creative Strategy', 'Illustration', 'UX/UI'].map((skill) => (
+                      {['Product Design', 'Graphic Design', 'Creative Strategy', 'Illustration', 'UX/UI', 'Figma', 'SMM'].map((skill) => (
                         <span 
                           key={skill}
                           className="px-3 py-1 bg-gray-50 text-gray-700 text-sm rounded-full border border-gray-200"
