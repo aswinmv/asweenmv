@@ -5,6 +5,14 @@ function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const navigationItems = [
+    { id: 'about', label: 'About' },
+    { id: 'work', label: 'Work' },
+    { id: 'personal', label: 'Personal' },
+    { id: 'blogs', label: 'Blogs' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
   useEffect(() => {
     setIsLoaded(true);
     
