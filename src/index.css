@@ -63,6 +63,13 @@
 
 /* Performance optimizations */
 @layer utilities {
+  /* Critical performance utilities */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
   .will-change-transform {
     will-change: transform;
   }
@@ -73,5 +80,19 @@
   
   .backface-hidden {
     backface-visibility: hidden;
+  }
+  
+  /* Mobile optimization */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Reduce motion for accessibility and performance */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

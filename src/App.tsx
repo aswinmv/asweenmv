@@ -56,13 +56,7 @@ function App() {
               Aswin MV
             </button>
             <div className="hidden sm:flex space-x-8" role="menubar">
-              {[
-                { id: 'about', label: 'About' },
-                { id: 'work', label: 'Work' },
-                { id: 'personal', label: 'Personal' },
-                { id: 'blogs', label: 'Blogs' },
-                { id: 'contact', label: 'Contact' }
-              ].map(({ id, label }) => (
+              {navigationItems.map(({ id, label }) => (
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
