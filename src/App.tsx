@@ -1,35 +1,22 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Mail, ExternalLink } from 'lucide-react';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Memoize navigation items to prevent re-renders
-  const navigationItems = useMemo(() => [
+  const navigationItems = [
     { id: 'about', label: 'About' },
     { id: 'work', label: 'Work' },
     { id: 'personal', label: 'Personal' },
+    { id: 'blogs', label: 'Blogs' },
     { id: 'contact', label: 'Contact' }
-  ], []);
-
-  // Memoize skills array
-  const skills = useMemo(() => [
-    'Product Design', 'Graphic Design', 'Creative Strategy', 
-    'Illustration', 'UX/UI', 'Figma', 'SMM'
-  ], []);
-
-  const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, []);
+  ];
 
   useEffect(() => {
     setIsLoaded(true);
     
-    const handleScroll = useCallback(() => {
+    const handleScroll = () => {
       const sections = ['about', 'work', 'personal', 'contact'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
@@ -42,14 +29,21 @@ function App() {
       if (currentSection) {
         setActiveSection(currentSection);
       }
-    }, []);
+    };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
-    <div className={`min-h-screen bg-white transition-opacity duration-500 gpu-accelerated mobile-optimized ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* Skip to main content for accessibility */}
       <a 
         href="#main-content" 
@@ -59,7 +53,7 @@ function App() {
       </a>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-40 gpu-accelerated" role="navigation" aria-label="Main navigation">
+      <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-40" role="navigation" aria-label="Main navigation">
         <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <button 
@@ -160,7 +154,7 @@ function App() {
                     </h3>
                     <p className="text-sm text-gray-600 mb-3">Expertise Areas</p>
                     <div className="flex flex-wrap gap-2 mt-3">
-                      {skills.map((skill) => (
+                      {['Product Design', 'Graphic Design', 'Creative Strategy', 'Illustration', 'UX/UI', 'Figma', 'SMM'].map((skill) => (
                         <span 
                           key={skill}
                           className="px-3 py-1 bg-gray-50 text-gray-700 text-sm rounded-full border border-gray-200"

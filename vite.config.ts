@@ -5,49 +5,52 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   esbuild: {
-    // Use esbuild for faster builds
-    target: 'es2020',
-    minifyIdentifiers: true,
-    minifySyntax: true,
-    minifyWhitespace: true,
+    // Remove console logs in production
+    drop: ['console', 'debugger'],
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
     include: ['react', 'react-dom'],
   },
   build: {
-    // Use esbuild for faster builds
-    minify: 'esbuild',
-    // Disable source maps for production
+    // Enable minification for production
+    minify: 'esbuild', // Faster than terser
+    // Generate source maps for debugging
     sourcemap: false,
     // Reduce bundle size
-    target: 'es2020',
+    target: 'es2015',
     cssCodeSplit: true,
-    reportCompressedSize: false,
     // Optimize chunk splitting
     rollupOptions: {
       output: {
-        // Better chunk naming for caching
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]',
+        // Better chunk splitting for caching
         manualChunks: {
           vendor: ['react', 'react-dom'],
           icons: ['lucide-react'],
         },
-      },
+        // Optimize asset naming for caching
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+      }
     },
     // Set chunk size warning limit
     chunkSizeWarningLimit: 500,
+    // Enable compression
+    reportCompressedSize: false, // Faster builds
   },
+  // Optimize dev server
   server: {
-    // Enable compression and caching
+    hmr: {
+      overlay: false, // Disable error overlay for better performance
+    },
     headers: {
       'Cache-Control': 'public, max-age=31536000',
+      'X-Content-Type-Options': 'nosniff',
     },
-    // Improve HMR performance
-    hmr: {
-      overlay: false,
-    },
-  }
+  },
+  // Enable CSS optimization
+  css: {
+    devSourcemap: false,
+  },
 });
