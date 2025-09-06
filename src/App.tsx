@@ -5,14 +5,6 @@ function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const navigationItems = [
-    { id: 'about', label: 'About' },
-    { id: 'work', label: 'Work' },
-    { id: 'personal', label: 'Personal' },
-    { id: 'blogs', label: 'Blogs' },
-    { id: 'contact', label: 'Contact' }
-  ];
-
   useEffect(() => {
     setIsLoaded(true);
     
@@ -64,7 +56,12 @@ function App() {
               Aswin MV
             </button>
             <div className="hidden sm:flex space-x-8" role="menubar">
-              {navigationItems.map(({ id, label }) => (
+              {[
+                { id: 'about', label: 'About' },
+                { id: 'work', label: 'Work' },
+                { id: 'personal', label: 'Personal' },
+                { id: 'contact', label: 'Contact' }
+              ].map(({ id, label }) => (
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
