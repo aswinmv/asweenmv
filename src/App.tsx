@@ -60,6 +60,7 @@ function App() {
                 { id: 'about', label: 'About' },
                 { id: 'work', label: 'Work' },
                 { id: 'personal', label: 'Personal' },
+                { id: 'blogs', label: 'Blogs' },
                 { id: 'contact', label: 'Contact' }
               ].map(({ id, label }) => (
                 <button
