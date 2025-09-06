@@ -14,14 +14,6 @@ This is my personal portfolio website, built to showcase my work, experience, an
 
 ---
 
-## 📂 Project Structure
-.
-├── index.html # Main portfolio page
-├── style.css # Styles
-├── script.js # Scripts
-├── sitemap.xml # Sitemap for search engines
-└── robots.txt # Crawler rules
-
 ---
 
 ## 🚀 Deployment
