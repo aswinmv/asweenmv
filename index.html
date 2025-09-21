@@ -3,56 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     
-    <!-- Critical CSS inlined for immediate rendering -->
-    <style>
-      /* Critical above-the-fold styles */
-      html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-      body { font-family: 'JetBrains Mono', monospace; margin: 0; padding: 0; background: white; font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1; text-rendering: optimizeLegibility; }
-      .min-h-screen { min-height: 100vh; }
-      .bg-white { background-color: white; }
-      .transition-opacity { transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 500ms; }
-      .opacity-0 { opacity: 0; }
-      .opacity-100 { opacity: 1; }
-      .fixed { position: fixed; }
-      .top-0 { top: 0; }
-      .left-0 { left: 0; }
-      .right-0 { right: 0; }
-      .z-40 { z-index: 40; }
-      .backdrop-blur-md { backdrop-filter: blur(12px); }
-      .border-b { border-bottom-width: 1px; }
-      .border-gray-100 { border-color: rgb(243 244 246); }
-      .max-w-4xl { max-width: 56rem; }
-      .mx-auto { margin-left: auto; margin-right: auto; }
-      .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-      .pt-20 { padding-top: 5rem; }
-      .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-      .font-bold { font-weight: 700; }
-      .text-gray-900 { color: rgb(17 24 39); }
-      .mb-6 { margin-bottom: 1.5rem; }
-      .leading-tight { line-height: 1.25; }
-      .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-      .text-gray-600 { color: rgb(75 85 99); }
-      .font-light { font-weight: 300; }
-      .leading-relaxed { line-height: 1.625; }
-      @media (min-width: 640px) {
-        .sm\:text-5xl { font-size: 3rem; line-height: 1; }
-        .sm\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
-        .sm\:py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-      }
-      @media (min-width: 1024px) {
-        .lg\:text-6xl { font-size: 3.75rem; line-height: 1; }
-      }
-    </style>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"></noscript>
-    <link rel="preload" href="/profile-pic (4).png" as="image">
-    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-40163W5QZN"></script>
-    <script defer>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -63,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- Google Tag Manager -->
-    <script defer>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -122,6 +75,9 @@
     <link rel="dns-prefetch" href="https://linkedin.com" />
     <link rel="dns-prefetch" href="https://github.com" />
     
+    <!-- JetBrains Mono Font -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
     <!-- Theme Color -->
     <meta name="theme-color" content="#ffffff" />
     
@@ -161,14 +117,10 @@
   <body class="touch-manipulation">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGX95M67"
-    height="0" width="0" style="display:none;visibility:hidden" loading="lazy"></iframe></noscript>
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx" defer></script>
-    
-    <!-- Load non-critical CSS asynchronously -->
-    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
