@@ -2,13 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom base styles for production */
 @layer base {
-  /* Non-critical base styles */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Focus styles for accessibility */
   *:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
   
+  /* Screen reader only utility */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -33,6 +46,7 @@
   }
 }
 
+/* Custom components */
 @layer components {
   .prose {
     max-width: none;
@@ -47,6 +61,7 @@
   }
 }
 
+/* Performance optimizations */
 @layer utilities {
   /* Critical performance utilities */
   .gpu-accelerated {
@@ -74,7 +89,7 @@
   
   /* Reduce motion for accessibility and performance */
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    * {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;

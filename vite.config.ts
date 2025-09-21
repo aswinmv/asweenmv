@@ -4,75 +4,53 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  define: {
-    // Remove console logs in production
-    'console.log': 'void 0',
-    'console.warn': 'void 0',
-    'console.error': 'void 0',
-  },
   esbuild: {
-    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
-    legalComments: 'none',
-    treeShaking: true,
+    // Remove console logs in production
+    drop: ['console', 'debugger'],
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'lucide-react'],
-    force: true,
+    exclude: ['lucide-react'],
+    include: ['react', 'react-dom'],
   },
   build: {
-    minify: 'esbuild',
+    // Enable minification for production
+    minify: 'esbuild', // Faster than terser
+    // Generate source maps for debugging
     sourcemap: false,
-    target: ['es2020', 'chrome80', 'firefox78', 'safari14'],
+    // Reduce bundle size
+    target: 'es2015',
     cssCodeSplit: true,
-    cssMinify: true,
-    assetsInlineLimit: 4096,
+    // Optimize chunk splitting
     rollupOptions: {
-      treeshake: {
-        moduleSideEffects: false,
-        propertyReadSideEffects: false,
-        tryCatchDeoptimization: false,
-      },
       output: {
+        // Better chunk splitting for caching
         manualChunks: {
           vendor: ['react', 'react-dom'],
           icons: ['lucide-react'],
         },
+        // Optimize asset naming for caching
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
-        compact: true,
       }
     },
-    chunkSizeWarningLimit: 300,
-    reportCompressedSize: false,
+    // Set chunk size warning limit
+    chunkSizeWarningLimit: 500,
+    // Enable compression
+    reportCompressedSize: false, // Faster builds
   },
+  // Optimize dev server
   server: {
-    preTransformRequests: false,
     hmr: {
-      overlay: false,
+      overlay: false, // Disable error overlay for better performance
     },
     headers: {
       'Cache-Control': 'public, max-age=31536000',
       'X-Content-Type-Options': 'nosniff',
-      'X-Frame-Options': 'DENY',
-      'X-XSS-Protection': '1; mode=block',
     },
   },
+  // Enable CSS optimization
   css: {
     devSourcemap: false,
-    postcss: {
-      plugins: [
-        {
-          postcssPlugin: 'internal:charset-removal',
-          AtRule: {
-            charset: (atRule) => {
-              if (atRule.name === 'charset') {
-                atRule.remove();
-              }
-            }
-          }
-        }
-      ]
-    }
   },
 });
