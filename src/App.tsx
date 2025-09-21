@@ -34,13 +34,12 @@ function App() {
             return false;
           });
           if (currentSection) {
-            setActiveSection(currentSection);
-          }
-          ticking = false;
-        });
-        ticking = true;
+    requestAnimationFrame(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    };
+    });
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
