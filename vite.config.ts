@@ -5,52 +5,65 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   esbuild: {
-    // Remove console logs in production
-    drop: ['console', 'debugger'],
+    // Aggressive optimization for production
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+    treeShaking: true,
+    minifyIdentifiers: true,
+    minifySyntax: true,
+    minifyWhitespace: true,
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
     include: ['react', 'react-dom'],
+    force: true,
   },
   build: {
-    // Enable minification for production
-    minify: 'esbuild', // Faster than terser
-    // Generate source maps for debugging
+    // Optimize build settings
+    minify: 'esbuild',
     sourcemap: false,
-    // Reduce bundle size
-    target: 'es2015',
+    target: 'es2020',
     cssCodeSplit: true,
-    // Optimize chunk splitting
+    assetsInlineLimit: 2048, // Inline small assets
     rollupOptions: {
       output: {
-        // Better chunk splitting for caching
+        // Optimized chunk splitting
         manualChunks: {
           vendor: ['react', 'react-dom'],
           icons: ['lucide-react'],
         },
-        // Optimize asset naming for caching
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
       }
     },
-    // Set chunk size warning limit
-    chunkSizeWarningLimit: 500,
-    // Enable compression
-    reportCompressedSize: false, // Faster builds
+    chunkSizeWarningLimit: 300,
+    reportCompressedSize: false,
   },
-  // Optimize dev server
   server: {
     hmr: {
-      overlay: false, // Disable error overlay for better performance
+      overlay: false,
     },
     headers: {
       'Cache-Control': 'public, max-age=31536000',
       'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'DENY',
     },
   },
-  // Enable CSS optimization
   css: {
     devSourcemap: false,
+    postcss: {
+      plugins: [
+        {
+          postcssPlugin: 'internal:charset-removal',
+          AtRule: {
+            charset: (atRule) => {
+              if (atRule.name === 'charset') {
+                atRule.remove();
+              }
+            }
+          }
+        }
+      ]
+    }
   },
 });

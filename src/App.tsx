@@ -1,8 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Mail, ExternalLink } from 'lucide-react';
 
-// Lazy load components for better performance
-const LazySection = React.lazy(() => Promise.resolve({ default: ({ children }: { children: React.ReactNode }) => <>{children}</> }));
+// True lazy loading for non-critical sections
+const LazyPersonalSection = React.lazy(() => 
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve({
+        default: ({ children }: { children: React.ReactNode }) => <>{children}</>
+      });
+    }, 100);
+  })
+);
+
+const LazyContactSection = React.lazy(() => 
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve({
+        default: ({ children }: { children: React.ReactNode }) => <>{children}</>
+      });
+    }, 200);
+  })
+);
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -19,7 +37,7 @@ function App() {
   useEffect(() => {
     setIsLoaded(true);
     
-    // Optimize scroll handler with throttling
+    // Optimize scroll handler with requestAnimationFrame throttling
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
@@ -42,7 +60,7 @@ function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true, capture: false });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -56,25 +74,33 @@ function App() {
     });
   };
 
-  // Preload critical resources
-  useEffect(() => {
-    const preloadLinks = [
-      'https://behance.net/aswinmv',
-      'https://dribbble.com/aswinmv',
-      'https://www.linkedin.com/in/aswinmv-/',
-      'https://github.com/aswinmv'
-    ];
-    
-    preloadLinks.forEach(href => {
-      const link = document.createElement('link');
-      link.rel = 'dns-prefetch';
-      link.href = href;
-      document.head.appendChild(link);
-    });
+  // Split long tasks into smaller async operations
+  const deferredPreload = React.useCallback(() => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const preloadLinks = [
+          'https://behance.net/aswinmv',
+          'https://dribbble.com/aswinmv',
+          'https://www.linkedin.com/in/aswinmv-/',
+          'https://github.com/aswinmv'
+        ];
+        
+        preloadLinks.forEach(href => {
+          const link = document.createElement('link');
+          link.rel = 'dns-prefetch';
+          link.href = href;
+          document.head.appendChild(link);
+        });
+      });
+    }
   }, []);
 
+  useEffect(() => {
+    deferredPreload();
+  }, [deferredPreload]);
+
   return (
-    <div className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`min-h-screen bg-white transition-opacity duration-500 will-change-opacity ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* Skip to main content for accessibility */}
       <a 
         href="#main-content"
@@ -84,7 +110,7 @@ function App() {
       </a>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-40" role="navigation" aria-label="Main navigation">
+      <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-40 will-change-transform" role="navigation" aria-label="Main navigation">
         <div className="max-w-4xl mx-auto px-6 py-4 will-change-transform">
           <div className="flex justify-between items-center">
             <button 
@@ -120,7 +146,7 @@ function App() {
         <div className="max-w-4xl mx-auto px-6">
           
           {/* Header/Hero */}
-          <header className="py-4 sm:py-6 will-change-transform">
+          <header className="py-4 sm:py-6">
             <div className="max-w-2xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Aswin MV
@@ -132,9 +158,7 @@ function App() {
           </header>
 
           {/* About */}
-          <React.Suspense fallback={<div className="py-8">Loading...</div>}>
-            <LazySection>
-              <section id="about" className="py-8" aria-labelledby="about-heading">
+          <section id="about" className="py-8" aria-labelledby="about-heading">
             <div className="max-w-2xl">
               <h2 id="about-heading" className="text-2xl font-semibold text-gray-900 mb-8">About</h2>
               <div className="prose prose-lg text-gray-700 leading-relaxed space-y-6">
@@ -147,11 +171,9 @@ function App() {
               </div>
             </div>
           </section>
-            </LazySection>
-          </React.Suspense>
 
           {/* Work */}
-          <section id="work" className="py-8 will-change-transform" aria-labelledby="work-heading">
+          <section id="work" className="py-8" aria-labelledby="work-heading">
             <div className="max-w-2xl">
               <h2 id="work-heading" className="text-2xl font-semibold text-gray-900 mb-8">Work</h2>
               
@@ -239,7 +261,9 @@ function App() {
           </section>
 
           {/* Personal */}
-          <section id="personal" className="py-8 will-change-transform" aria-labelledby="personal-heading">
+          <React.Suspense fallback={<div className="py-8 animate-pulse"><div className="h-8 bg-gray-200 rounded w-32 mb-8"></div><div className="space-y-4"><div className="h-4 bg-gray-200 rounded w-full"></div><div className="h-4 bg-gray-200 rounded w-3/4"></div></div></div>}>
+            <LazyPersonalSection>
+              <section id="personal" className="py-8" aria-labelledby="personal-heading">
             <div className="max-w-2xl">
               <h2 id="personal-heading" className="text-2xl font-semibold text-gray-900 mb-8">Personal</h2>
               
@@ -272,9 +296,13 @@ function App() {
               </div>
             </div>
           </section>
+            </LazyPersonalSection>
+          </React.Suspense>
 
           {/* Contact */}
-          <section id="contact" className="py-8 pb-16 will-change-transform" aria-labelledby="contact-heading">
+          <React.Suspense fallback={<div className="py-8 pb-16 animate-pulse"><div className="h-8 bg-gray-200 rounded w-40 mb-8"></div><div className="space-y-4"><div className="h-4 bg-gray-200 rounded w-full"></div><div className="h-4 bg-gray-200 rounded w-2/3"></div></div></div>}>
+            <LazyContactSection>
+              <section id="contact" className="py-8 pb-16" aria-labelledby="contact-heading">
             <div className="max-w-2xl">
               <h2 id="contact-heading" className="text-2xl font-semibold text-gray-900 mb-8">Get in touch</h2>
               
@@ -338,6 +366,9 @@ function App() {
               </div>
             </div>
           </section>
+            </LazyContactSection>
+          </React.Suspense>
+          
         </div>
       </main>
 

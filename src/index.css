@@ -2,26 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles for production */
+/* Optimized base styles */
 @layer base {
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
   }
   
   body {
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
-  /* Focus styles for accessibility */
+  /* Optimized focus styles */
   *:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
   
-  /* Screen reader only utility */
+  /* Accessibility utilities */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -46,7 +49,7 @@
   }
 }
 
-/* Custom components */
+/* Optimized components */
 @layer components {
   .prose {
     max-width: none;
@@ -61,7 +64,7 @@
   }
 }
 
-/* Performance optimizations */
+/* Enhanced performance utilities */
 @layer utilities {
   /* Critical performance utilities */
   .gpu-accelerated {
@@ -82,6 +85,16 @@
     backface-visibility: hidden;
   }
   
+  /* Enhanced animation performance */
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+  }
+  
   /* Mobile optimization */
   .touch-manipulation {
     touch-action: manipulation;
@@ -89,7 +102,7 @@
   
   /* Reduce motion for accessibility and performance */
   @media (prefers-reduced-motion: reduce) {
-    * {
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
