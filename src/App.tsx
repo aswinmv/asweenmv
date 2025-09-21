@@ -73,10 +73,6 @@ function App() {
     });
   }, []);
 
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
     <div className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* Skip to main content for accessibility */}
