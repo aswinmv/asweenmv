@@ -4,53 +4,75 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  esbuild: {
+  define: {
     // Remove console logs in production
-    drop: ['console', 'debugger'],
+    'console.log': 'void 0',
+    'console.warn': 'void 0',
+    'console.error': 'void 0',
+  },
+  esbuild: {
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+    legalComments: 'none',
+    treeShaking: true,
   },
   optimizeDeps: {
-    exclude: ['lucide-react'],
-    include: ['react', 'react-dom'],
+    include: ['react', 'react-dom', 'lucide-react'],
+    force: true,
   },
   build: {
-    // Enable minification for production
-    minify: 'esbuild', // Faster than terser
-    // Generate source maps for debugging
+    minify: 'esbuild',
     sourcemap: false,
-    // Reduce bundle size
-    target: 'es2015',
+    target: ['es2020', 'chrome80', 'firefox78', 'safari14'],
     cssCodeSplit: true,
-    // Optimize chunk splitting
+    cssMinify: true,
+    assetsInlineLimit: 4096,
     rollupOptions: {
+      treeshake: {
+        moduleSideEffects: false,
+        propertyReadSideEffects: false,
+        tryCatchDeoptimization: false,
+      },
       output: {
-        // Better chunk splitting for caching
         manualChunks: {
           vendor: ['react', 'react-dom'],
           icons: ['lucide-react'],
         },
-        // Optimize asset naming for caching
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
+        compact: true,
       }
     },
-    // Set chunk size warning limit
-    chunkSizeWarningLimit: 500,
-    // Enable compression
-    reportCompressedSize: false, // Faster builds
+    chunkSizeWarningLimit: 300,
+    reportCompressedSize: false,
   },
-  // Optimize dev server
   server: {
+    preTransformRequests: false,
     hmr: {
-      overlay: false, // Disable error overlay for better performance
+      overlay: false,
     },
     headers: {
       'Cache-Control': 'public, max-age=31536000',
       'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'DENY',
+      'X-XSS-Protection': '1; mode=block',
     },
   },
-  // Enable CSS optimization
   css: {
     devSourcemap: false,
+    postcss: {
+      plugins: [
+        {
+          postcssPlugin: 'internal:charset-removal',
+          AtRule: {
+            charset: (atRule) => {
+              if (atRule.name === 'charset') {
+                atRule.remove();
+              }
+            }
+          }
+        }
+      ]
+    }
   },
 });

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Mail, ExternalLink } from 'lucide-react';
 
+// Lazy load components for better performance
+const LazySection = React.lazy(() => Promise.resolve({ default: ({ children }: { children: React.ReactNode }) => <>{children}</> }));
+
 function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,18 +19,26 @@ function App() {
   useEffect(() => {
     setIsLoaded(true);
     
+    // Optimize scroll handler with throttling
+    let ticking = false;
     const handleScroll = () => {
-      const sections = ['about', 'work', 'personal', 'contact'];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (currentSection) {
-        setActiveSection(currentSection);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const sections = ['about', 'work', 'personal', 'contact'];
+          const currentSection = sections.find(section => {
+            const element = document.getElementById(section);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              return rect.top <= 100 && rect.bottom >= 100;
+            }
+            return false;
+          });
+          if (currentSection) {
+            setActiveSection(currentSection);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -36,8 +47,32 @@ function App() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
+    // Use passive event listener for better performance
+    requestAnimationFrame(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  };
+
+  // Preload critical resources
+  useEffect(() => {
+    const preloadLinks = [
+      'https://behance.net/aswinmv',
+      'https://dribbble.com/aswinmv',
+      'https://www.linkedin.com/in/aswinmv-/',
+      'https://github.com/aswinmv'
+    ];
+    
+    preloadLinks.forEach(href => {
+      const link = document.createElement('link');
+      link.rel = 'dns-prefetch';
+      link.href = href;
+      document.head.appendChild(link);
+    });
+  }, []);
+
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
@@ -46,7 +81,7 @@ function App() {
     <div className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* Skip to main content for accessibility */}
       <a 
-        href="#main-content" 
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-gray-900 text-white px-4 py-2 rounded-md z-50"
       >
         Skip to main content
@@ -54,7 +89,7 @@ function App() {
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-40" role="navigation" aria-label="Main navigation">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-6 py-4 will-change-transform">
           <div className="flex justify-between items-center">
             <button 
               onClick={() => scrollToSection('about')}
@@ -89,7 +124,7 @@ function App() {
         <div className="max-w-4xl mx-auto px-6">
           
           {/* Header/Hero */}
-          <header className="py-4 sm:py-6">
+          <header className="py-4 sm:py-6 will-change-transform">
             <div className="max-w-2xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Aswin MV
@@ -101,7 +136,9 @@ function App() {
           </header>
 
           {/* About */}
-          <section id="about" className="py-8" aria-labelledby="about-heading">
+          <React.Suspense fallback={<div className="py-8">Loading...</div>}>
+            <LazySection>
+              <section id="about" className="py-8" aria-labelledby="about-heading">
             <div className="max-w-2xl">
               <h2 id="about-heading" className="text-2xl font-semibold text-gray-900 mb-8">About</h2>
               <div className="prose prose-lg text-gray-700 leading-relaxed space-y-6">
@@ -114,9 +151,11 @@ function App() {
               </div>
             </div>
           </section>
+            </LazySection>
+          </React.Suspense>
 
           {/* Work */}
-          <section id="work" className="py-8" aria-labelledby="work-heading">
+          <section id="work" className="py-8 will-change-transform" aria-labelledby="work-heading">
             <div className="max-w-2xl">
               <h2 id="work-heading" className="text-2xl font-semibold text-gray-900 mb-8">Work</h2>
               
@@ -171,7 +210,7 @@ function App() {
                   <div className="space-y-4">
                     <div className="group">
                       <a 
-                        href="https://behance.net/aswinmv" 
+                        href="https://behance.net/aswinmv"
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
@@ -185,7 +224,7 @@ function App() {
                     </div>
                     <div className="group">
                       <a 
-                        href="https://dribbble.com/aswinmv" 
+                        href="https://dribbble.com/aswinmv"
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
@@ -204,7 +243,7 @@ function App() {
           </section>
 
           {/* Personal */}
-          <section id="personal" className="py-8" aria-labelledby="personal-heading">
+          <section id="personal" className="py-8 will-change-transform" aria-labelledby="personal-heading">
             <div className="max-w-2xl">
               <h2 id="personal-heading" className="text-2xl font-semibold text-gray-900 mb-8">Personal</h2>
               
@@ -239,7 +278,7 @@ function App() {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="py-8 pb-16" aria-labelledby="contact-heading">
+          <section id="contact" className="py-8 pb-16 will-change-transform" aria-labelledby="contact-heading">
             <div className="max-w-2xl">
               <h2 id="contact-heading" className="text-2xl font-semibold text-gray-900 mb-8">Get in touch</h2>
               
@@ -262,7 +301,7 @@ function App() {
                   </a>
                   
                   <a 
-                    href="https://www.linkedin.com/in/aswinmv-/"
+                    href="https://www.linkedin.com/in/aswinmv-/" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
@@ -275,7 +314,7 @@ function App() {
                   </a>
 
                   <a 
-                    href="https://x.com/Avillmilk?t=WK_jOQ2lvR0cKX_zeBEyAw"
+                    href="https://x.com/Avillmilk?t=WK_jOQ2lvR0cKX_zeBEyAw" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
@@ -288,7 +327,7 @@ function App() {
                   </a>
 
                   <a 
-                    href="https://github.com/aswinmv"
+                    href="https://github.com/aswinmv" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
