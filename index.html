@@ -2,26 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40163W5QZN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-40163W5QZN');
-    </script>
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KGX95M67');</script>
-    <!-- End Google Tag Manager -->
     
     <!-- SEO Meta Tags -->
     <title>Aswin MV - Product Designer in Kerala | UI/UX & Creative Strategy</title>
@@ -66,17 +47,22 @@
     <link rel="icon" type="image/png" href="/profile-pic (4).png" />
     <link rel="apple-touch-icon" href="/profile-pic (4).png" />
     
+    <!-- Critical resource preloads -->
+    <link rel="modulepreload" href="/src/main.tsx" />
+    <link rel="preload" href="/src/App.tsx" as="script" />
+
     <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://medium.com" />
     <link rel="dns-prefetch" href="https://behance.net" />
     <link rel="dns-prefetch" href="https://dribbble.com" />
     <link rel="dns-prefetch" href="https://linkedin.com" />
     <link rel="dns-prefetch" href="https://github.com" />
     
-    <!-- JetBrains Mono Font -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- JetBrains Mono Font with optimized loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#ffffff" />
@@ -115,12 +101,36 @@
     </script>
   </head>
   <body class="touch-manipulation">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGX95M67"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Deferred Analytics Scripts -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          // Google Analytics
+          var gtagScript = document.createElement('script');
+          gtagScript.async = true;
+          gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-40163W5QZN';
+          document.head.appendChild(gtagScript);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-40163W5QZN');
+
+          // Google Tag Manager
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-KGX95M67');
+        }, 1000);
+      });
+    </script>
+
+    <!-- Google Tag Manager (noscript) - deferred -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGX95M67"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </body>
 </html>

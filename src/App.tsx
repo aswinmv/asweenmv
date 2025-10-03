@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { ArrowUpRight, Mail, ExternalLink } from 'lucide-react';
+
+const WorkSection = lazy(() => import('./components/WorkSection'));
+const PersonalSection = lazy(() => import('./components/PersonalSection'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -116,193 +120,19 @@ function App() {
           </section>
 
           {/* Work */}
-          <section id="work" className="py-8" aria-labelledby="work-heading">
-            <div className="max-w-2xl">
-              <h2 id="work-heading" className="text-2xl font-semibold text-gray-900 mb-8">Work</h2>
-              
-              <div className="space-y-8">
-                <article className="border-l-2 border-gray-200 pl-6">
-                  <div className="mb-4">
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">
-                      Lead Designer at Whoots
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3">Current Role</p>
-                    <p className="text-gray-700 leading-relaxed">
-                      Creating innovative design solutions and strategic creative direction for 
-                      diverse projects, focusing on user-centered experiences that drive engagement.
-                    </p>
-                  </div>
-                </article>
-
-                <article className="border-l-2 border-gray-200 pl-6">
-                  <div className="mb-4">
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">
-                      Freelance Graphic Designer
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3">3+ Years Experience</p>
-                    <p className="text-gray-700 leading-relaxed">
-                      Collaborated with international clients across India, the Middle East, and 
-                      Australia, delivering creative solutions for diverse industries and markets.
-                    </p>
-                  </div>
-                </article>
-
-                <article className="border-l-2 border-gray-200 pl-6">
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">
-                      Core Skills
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3">Expertise Areas</p>
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {['Product Design', 'Graphic Design', 'Creative Strategy', 'Illustration', 'UX/UI', 'Figma', 'SMM'].map((skill) => (
-                        <span 
-                          key={skill}
-                          className="px-3 py-1 bg-gray-50 text-gray-700 text-sm rounded-full border border-gray-200"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-
-                <div className="pt-6">
-                  <h3 className="text-lg font-medium text-gray-900 mb-4">Featured Projects</h3>
-                  <div className="space-y-4">
-                    <div className="group">
-                      <a 
-                        href="https://behance.net/aswinmv" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
-                        aria-label="View portfolio on Behance (opens in new tab)"
-                      >
-                        <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                        <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
-                          View Portfolio on Behance
-                        </span>
-                      </a>
-                    </div>
-                    <div className="group">
-                      <a 
-                        href="https://dribbble.com/aswinmv" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
-                        aria-label="View work on Dribbble (opens in new tab)"
-                      >
-                        <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                        <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
-                          Creative Work on Dribbble
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Suspense fallback={<div className="py-8"><div className="max-w-2xl h-96 animate-pulse bg-gray-50 rounded-lg"></div></div>}>
+            <WorkSection />
+          </Suspense>
 
           {/* Personal */}
-          <section id="personal" className="py-8" aria-labelledby="personal-heading">
-            <div className="max-w-2xl">
-              <h2 id="personal-heading" className="text-2xl font-semibold text-gray-900 mb-8">Personal</h2>
-              
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-lg font-medium text-gray-900 mb-3">Beyond Design</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Beyond design, I enjoy music, gaming, cricket, illustration, and writing. 
-                    These passions fuel my creativity and keep me inspired.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-medium text-gray-900 mb-3">Currently</h3>
-                  <ul className="text-gray-700 leading-relaxed space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 flex-shrink-0"></span>
-                      Reading about design systems and creative processes
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 flex-shrink-0"></span>
-                      Exploring new illustration techniques and digital art
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 flex-shrink-0"></span>
-                      Following cricket seasons and local gaming communities
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Suspense fallback={<div className="py-8"><div className="max-w-2xl h-64 animate-pulse bg-gray-50 rounded-lg"></div></div>}>
+            <PersonalSection />
+          </Suspense>
 
           {/* Contact */}
-          <section id="contact" className="py-8 pb-16" aria-labelledby="contact-heading">
-            <div className="max-w-2xl">
-              <h2 id="contact-heading" className="text-2xl font-semibold text-gray-900 mb-8">Get in touch</h2>
-              
-              <div className="space-y-6">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  I'm always interested in hearing about new projects, opportunities, or just 
-                  connecting with fellow designers and creatives. Drop me a line!
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href="mailto:aswinmv.ux@gmail.com"
-                    className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
-                    aria-label="Send email to aswinmv.ux@gmail.com"
-                  >
-                    <Mail size={18} aria-hidden="true" />
-                    <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
-                      aswinmv.ux@gmail.com
-                    </span>
-                  </a>
-                  
-                  <a 
-                    href="https://www.linkedin.com/in/aswinmv-/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
-                    aria-label="Visit LinkedIn profile (opens in new tab)"
-                  >
-                    <ArrowUpRight size={18} aria-hidden="true" />
-                    <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
-                      LinkedIn
-                    </span>
-                  </a>
-
-                  <a 
-                    href="https://x.com/Avillmilk?t=WK_jOQ2lvR0cKX_zeBEyAw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
-                    aria-label="Visit X (Twitter) profile (opens in new tab)"
-                  >
-                    <ArrowUpRight size={18} aria-hidden="true" />
-                    <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
-                      X (Twitter)
-                    </span>
-                  </a>
-
-                  <a 
-                    href="https://github.com/aswinmv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
-                    aria-label="Visit GitHub profile (opens in new tab)"
-                  >
-                    <ArrowUpRight size={18} aria-hidden="true" />
-                    <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
-                      GitHub
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Suspense fallback={<div className="py-8"><div className="max-w-2xl h-48 animate-pulse bg-gray-50 rounded-lg"></div></div>}>
+            <ContactSection />
+          </Suspense>
         </div>
       </main>
 

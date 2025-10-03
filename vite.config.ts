@@ -9,24 +9,48 @@ export default defineConfig({
     drop: ['console', 'debugger'],
   },
   optimizeDeps: {
-    exclude: ['lucide-react'],
-    include: ['react', 'react-dom'],
+    include: ['react', 'react-dom', 'lucide-react'],
   },
   build: {
     // Enable minification for production
-    minify: 'esbuild', // Faster than terser
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log'],
+        passes: 2,
+      },
+      mangle: {
+        safari10: true,
+      },
+      format: {
+        comments: false,
+      },
+    },
     // Generate source maps for debugging
     sourcemap: false,
     // Reduce bundle size
     target: 'es2015',
     cssCodeSplit: true,
+    cssMinify: true,
     // Optimize chunk splitting
     rollupOptions: {
       output: {
         // Better chunk splitting for caching
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          icons: ['lucide-react'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
+            return 'vendor';
+          }
+          if (id.includes('/components/')) {
+            return 'components';
+          }
         },
         // Optimize asset naming for caching
         assetFileNames: 'assets/[name]-[hash][extname]',
@@ -37,7 +61,7 @@ export default defineConfig({
     // Set chunk size warning limit
     chunkSizeWarningLimit: 500,
     // Enable compression
-    reportCompressedSize: false, // Faster builds
+    reportCompressedSize: false,
   },
   // Optimize dev server
   server: {
