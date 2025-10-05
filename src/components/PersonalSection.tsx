@@ -18,7 +18,7 @@ export default function PersonalSection() {
             <ul className="text-gray-700 leading-relaxed space-y-2">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 flex-shrink-0"></span>
-                Reading about design systems and creative processes
+                Exploring about design systems and product management
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 flex-shrink-0"></span>
