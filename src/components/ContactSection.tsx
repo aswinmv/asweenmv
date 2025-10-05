@@ -20,7 +20,7 @@ export default function ContactSection() {
             >
               <Mail size={18} aria-hidden="true" />
               <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
-                work@aswinmv.in S
+                work@aswinmv.in
               </span>
             </a>
 
