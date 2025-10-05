@@ -14,9 +14,9 @@ export default function ContactSection() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="mailto:aswinmv.ux@gmail.com"
+              href="mailto:work@aswinmv.in"
               className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
-              aria-label="Send email to aswinmv.ux@gmail.com"
+              aria-label="Send email to work@aswinmv.in"
             >
               <Mail size={18} aria-hidden="true" />
               <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
