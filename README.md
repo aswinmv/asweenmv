@@ -30,8 +30,8 @@ Currently hosted on **Netlify Pages**
 ---
 
 ## 📬 Contact
-- **Email:** aswinmv.ux@gmail.com  
-- **LinkedIn:** [linkedin.com/in/aswinmv](#)  
+- **Email:** work@aswinmv.in
+- **LinkedIn:** [linkedin.com/in/aswinmv](#)
 - **Portfolio Website:** [https://aswinmv.in](https://aswinmv.in)  
 
 ---
