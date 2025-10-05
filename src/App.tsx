@@ -1,5 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { ArrowUpRight, Mail, ExternalLink } from 'lucide-react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 
 const WorkSection = lazy(() => import('./components/WorkSection'));
 const PersonalSection = lazy(() => import('./components/PersonalSection'));
@@ -13,7 +12,6 @@ function App() {
     { id: 'about', label: 'About' },
     { id: 'work', label: 'Work' },
     { id: 'personal', label: 'Personal' },
-    { id: 'blogs', label: 'Blogs' },
     { id: 'contact', label: 'Contact' }
   ];
 

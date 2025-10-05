@@ -61,33 +61,14 @@
   }
 }
 
-/* Performance optimizations */
+/* Utilities */
 @layer utilities {
-  /* Critical performance utilities */
-  .gpu-accelerated {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
-  
-  .will-change-transform {
-    will-change: transform;
-  }
-  
-  .will-change-opacity {
-    will-change: opacity;
-  }
-  
-  .backface-hidden {
-    backface-visibility: hidden;
-  }
-  
   /* Mobile optimization */
   .touch-manipulation {
     touch-action: manipulation;
   }
-  
-  /* Reduce motion for accessibility and performance */
+
+  /* Reduce motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
     * {
       animation-duration: 0.01ms !important;
