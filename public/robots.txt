@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aswinmv.com/sitemap.xml
+Sitemap: https://aswinmv.in/sitemap.xml
