@@ -108,9 +108,9 @@ function App() {
               <h2 id="about-heading" className="text-2xl font-semibold text-gray-900 mb-8">About</h2>
               <div className="prose prose-lg text-gray-700 leading-relaxed space-y-6">
                 <p>
-                  I'm Aswin MV, currently working as a lead designer at Whoots. With over 3 years of 
-                  graphic design experience, I've worked with clients across India, the 
-                  Middle East, and Australia. I combine creativity with strategy to design 
+                  I'm Aswin MV, currently working as a UI/UX Designer at Nexotech, designing apps, ERP software, and SaaS products. With over 3 years of
+                  design experience, I've worked with clients across India, the
+                  Middle East, and Australia. I specialize in creating intuitive interfaces for complex enterprise challenges while combining creativity with strategy to design
                   experiences that inspire and connect with people.
                 </p>
               </div>

@@ -10,9 +10,23 @@ export default function WorkSection() {
           <article className="border-l-2 border-gray-200 pl-6">
             <div className="mb-4">
               <h3 className="text-lg font-medium text-gray-900 mb-2">
-                Lead Designer at Whoots
+                UI/UX Designer at Nexotech
               </h3>
               <p className="text-sm text-gray-600 mb-3">Current Role</p>
+              <p className="text-gray-700 leading-relaxed">
+                Designing intuitive interfaces and user experiences for mobile apps, ERP software,
+                and SaaS products. Focused on solving complex enterprise challenges through thoughtful
+                design and user-centered methodologies.
+              </p>
+            </div>
+          </article>
+
+          <article className="border-l-2 border-gray-200 pl-6">
+            <div className="mb-4">
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                Lead Designer at Whoots
+              </h3>
+              <p className="text-sm text-gray-600 mb-3">Previous Role</p>
               <p className="text-gray-700 leading-relaxed">
                 Creating innovative design solutions and strategic creative direction for
                 diverse projects, focusing on user-centered experiences that drive engagement.
