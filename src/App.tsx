@@ -93,8 +93,8 @@ function App() {
           {/* Header/Hero */}
           <header className="py-4 sm:py-6">
             <div className="max-w-2xl">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Aswin MV
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Hi, my name is Aswin MV
               </h1>
               <p className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed">
                 Product Designer & Creative Strategist
