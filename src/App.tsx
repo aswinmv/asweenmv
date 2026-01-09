@@ -92,13 +92,20 @@ function App() {
           
           {/* Header/Hero */}
           <header className="py-4 sm:py-6">
-            <div className="max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Hi, my name is Aswin MV
-              </h1>
-              <p className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed">
-                Product Designer & Creative Strategist
-              </p>
+            <div className="max-w-2xl flex flex-col md:flex-row md:items-center md:gap-8 gap-6">
+              <img
+                src="/profile-pic_(4).png"
+                alt="Aswin MV profile picture"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover flex-shrink-0 mx-auto md:mx-0 shadow-lg"
+              />
+              <div>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                  Hi, my name is Aswin MV
+                </h1>
+                <p className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed">
+                  Product Designer & Creative Strategist
+                </p>
+              </div>
             </div>
           </header>
 
