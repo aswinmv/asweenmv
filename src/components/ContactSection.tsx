@@ -38,7 +38,7 @@ export default function ContactSection() {
             </a>
 
             <a
-              href="https://x.com/Avillmilk?t=WK_jOQ2lvR0cKX_zeBEyAw"
+              href="https://x.com/asweeenmv"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
