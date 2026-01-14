@@ -15,7 +15,6 @@ export default defineConfig({
     sourcemap: false,
     cssCodeSplit: true,
     cssMinify: true,
-    assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
         manualChunks(id) {

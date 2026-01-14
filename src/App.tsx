@@ -1,5 +1,4 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import OptimizedImage from './components/OptimizedImage';
 
 const WorkSection = lazy(() => import('./components/WorkSection'));
 const PersonalSection = lazy(() => import('./components/PersonalSection'));
@@ -94,30 +93,11 @@ function App() {
           {/* Header/Hero */}
           <header className="py-4 sm:py-6">
             <div className="max-w-2xl flex flex-col md:flex-row md:items-center md:gap-8 gap-6">
-              <picture>
-                <source
-                  media="(max-width: 640px)"
-                  srcSet="/profile-pic-sm.webp 1x, /profile-pic-md.webp 2x"
-                  type="image/webp"
-                />
-                <source
-                  media="(max-width: 768px)"
-                  srcSet="/profile-pic-md.webp 1x, /profile-pic-lg.webp 2x"
-                  type="image/webp"
-                />
-                <source
-                  srcSet="/profile-pic-lg.webp 1x, /profile-pic-xl.webp 2x"
-                  type="image/webp"
-                />
-                <OptimizedImage
-                  src="/profile-pic-fallback.png"
-                  alt="Aswin MV profile picture"
-                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover flex-shrink-0 shadow-lg"
-                  width={192}
-                  height={192}
-                  priority={true}
-                />
-              </picture>
+              <img
+                src="/profile-pic_(4).png"
+                alt="Aswin MV profile picture"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover flex-shrink-0 shadow-lg"
+              />
               <div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                   Hi, my name is Aswin MV
