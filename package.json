@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.90.1",
     "caniuse-lite": "^1.0.30001756",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
