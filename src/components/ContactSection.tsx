@@ -1,47 +1,11 @@
 import { useState } from 'react';
 import { ArrowUpRight, Mail } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([formData]);
-
-      if (error) throw error;
-
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
   };
 
   return (
@@ -55,7 +19,13 @@ export default function ContactSection() {
             connecting with fellow designers and creatives. Drop me a line!
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScnnSmufOO-Q08dZ3BS4ENib_1PmuMpxjDyxEf5PRSvrUQVEA/formResponse"
+            method="POST"
+            target="_self"
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
                 Name
@@ -63,9 +33,7 @@ export default function ContactSection() {
               <input
                 type="text"
                 id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
+                name="entry.582715265"
                 required
                 className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200"
                 placeholder="Your name"
@@ -79,9 +47,7 @@ export default function ContactSection() {
               <input
                 type="email"
                 id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
+                name="entry.600569406"
                 required
                 className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200"
                 placeholder="your@email.com"
@@ -94,27 +60,13 @@ export default function ContactSection() {
               </label>
               <textarea
                 id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
+                name="entry.1147392960"
                 required
                 rows={5}
                 className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 resize-none"
                 placeholder="Your message..."
               />
             </div>
-
-            {submitStatus === 'success' && (
-              <div className="p-4 bg-green-50 border border-green-200 rounded-md">
-                <p className="text-sm text-green-800">Thank you for your message! I'll get back to you soon.</p>
-              </div>
-            )}
-
-            {submitStatus === 'error' && (
-              <div className="p-4 bg-red-50 border border-red-200 rounded-md">
-                <p className="text-sm text-red-800">Something went wrong. Please try again or email me directly.</p>
-              </div>
-            )}
 
             <button
               type="submit"
