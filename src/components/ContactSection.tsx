@@ -3,9 +3,37 @@ import { ArrowUpRight, Mail } from 'lucide-react';
 
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const formData = new FormData(e.currentTarget);
+
+      await fetch(
+        'https://docs.google.com/forms/u/0/d/e/1FAIpQLScnnSmufOO-Q08dZ3BS4ENib_1PmuMpxjDyxEf5PRSvrUQVEA/formResponse',
+        {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors'
+        }
+      );
+
+      setSubmitStatus('success');
+      e.currentTarget.reset();
+
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -19,13 +47,7 @@ export default function ContactSection() {
             connecting with fellow designers and creatives. Drop me a line!
           </p>
 
-          <form
-            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScnnSmufOO-Q08dZ3BS4ENib_1PmuMpxjDyxEf5PRSvrUQVEA/formResponse"
-            method="POST"
-            target="_self"
-            onSubmit={handleSubmit}
-            className="space-y-6"
-          >
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
                 Name
@@ -75,6 +97,18 @@ export default function ContactSection() {
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
+
+            {submitStatus === 'success' && (
+              <div className="p-4 bg-green-50 border border-green-200 rounded-md">
+                <p className="text-sm text-green-800">Thank you for your message! I'll get back to you soon.</p>
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-md">
+                <p className="text-sm text-red-800">Something went wrong. Please try again or email me directly.</p>
+              </div>
+            )}
           </form>
 
           <div className="pt-6 border-t border-gray-100">
