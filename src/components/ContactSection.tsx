@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { ArrowUpRight, Mail } from 'lucide-react';
 
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -11,23 +13,19 @@ export default function ContactSection() {
     setSubmitStatus('idle');
 
     try {
-      const formData = new FormData(e.currentTarget);
+      if (formRef.current && iframeRef.current) {
+        formRef.current.target = iframeRef.current.name;
+        formRef.current.submit();
 
-      await fetch(
-        'https://docs.google.com/forms/u/0/d/e/1FAIpQLScnnSmufOO-Q08dZ3BS4ENib_1PmuMpxjDyxEf5PRSvrUQVEA/formResponse',
-        {
-          method: 'POST',
-          body: formData,
-          mode: 'no-cors'
-        }
-      );
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
-      setSubmitStatus('success');
-      e.currentTarget.reset();
+        setSubmitStatus('success');
+        formRef.current.reset();
 
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -47,7 +45,13 @@ export default function ContactSection() {
             connecting with fellow designers and creatives. Drop me a line!
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScnnSmufOO-Q08dZ3BS4ENib_1PmuMpxjDyxEf5PRSvrUQVEA/formResponse"
+            method="POST"
+            className="space-y-6"
+          >
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
                 Name
@@ -110,6 +114,13 @@ export default function ContactSection() {
               </div>
             )}
           </form>
+
+          <iframe
+            ref={iframeRef}
+            name="google-form-iframe"
+            className="hidden"
+            title="Google Form submission"
+          />
 
           <div className="pt-6 border-t border-gray-100">
             <p className="text-sm text-gray-600 mb-4">Or connect with me on:</p>
