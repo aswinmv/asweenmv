@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react';
 import { ArrowUpRight, Mail } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ContactSection() {
+  const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
@@ -37,12 +39,11 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-8 pb-16" aria-labelledby="contact-heading">
       <div className="max-w-2xl">
-        <h2 id="contact-heading" className="text-2xl font-semibold text-gray-900 mb-8">Get in touch</h2>
+        <h2 id="contact-heading" className="text-2xl font-semibold text-gray-900 mb-8">{t('contact.heading')}</h2>
 
         <div className="space-y-8">
           <p className="text-lg text-gray-700 leading-relaxed">
-            I'm always interested in hearing about new projects, opportunities, or just
-            connecting with fellow designers and creatives. Drop me a line!
+            {t('contact.intro')}
           </p>
 
           <form

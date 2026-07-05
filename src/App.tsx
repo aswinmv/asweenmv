@@ -1,18 +1,21 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
+import { useLanguage } from './contexts/LanguageContext';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 const WorkSection = lazy(() => import('./components/WorkSection'));
 const PersonalSection = lazy(() => import('./components/PersonalSection'));
 const ContactSection = lazy(() => import('./components/ContactSection'));
 
 function App() {
+  const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState('about');
   const [isLoaded, setIsLoaded] = useState(false);
 
   const navigationItems = [
-    { id: 'about', label: 'About' },
-    { id: 'work', label: 'Work' },
-    { id: 'personal', label: 'Personal' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'about', label: t('nav.about') },
+    { id: 'work', label: t('nav.work') },
+    { id: 'personal', label: t('nav.personal') },
+    { id: 'contact', label: t('nav.contact') }
   ];
 
   useEffect(() => {
@@ -47,25 +50,25 @@ function App() {
   return (
     <div className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* Skip to main content for accessibility */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-gray-900 text-white px-4 py-2 rounded-md z-50"
       >
-        Skip to main content
+        {t('nav.skipToMain')}
       </a>
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-40" role="navigation" aria-label="Main navigation">
         <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <button 
+            <button
               onClick={() => scrollToSection('about')}
               className="text-lg font-semibold text-gray-900 hover:text-gray-700 transition-colors duration-200"
-              aria-label="Go to top of page"
+              aria-label={t('nav.goToTop')}
             >
               Aswin MV
             </button>
-            <div className="hidden sm:flex space-x-8" role="menubar">
+            <div className="hidden sm:flex items-center space-x-8" role="menubar">
               {navigationItems.map(({ id, label }) => (
                 <button
                   key={id}
@@ -82,6 +85,7 @@ function App() {
                 </button>
               ))}
             </div>
+            <LanguageSwitcher />
           </div>
         </div>
       </nav>
@@ -100,10 +104,10 @@ function App() {
               />
               <div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                  Hi, my name is Aswin MV
+                  {t('header.greeting')}
                 </h1>
                 <p className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed">
-                  Product Designer & Creative Strategist
+                  {t('header.title')}
                 </p>
               </div>
             </div>
@@ -112,13 +116,10 @@ function App() {
           {/* About */}
           <section id="about" className="py-8" aria-labelledby="about-heading">
             <div className="max-w-2xl">
-              <h2 id="about-heading" className="text-2xl font-semibold text-gray-900 mb-8">About</h2>
+              <h2 id="about-heading" className="text-2xl font-semibold text-gray-900 mb-8">{t('about.heading')}</h2>
               <div className="prose prose-lg text-gray-700 leading-relaxed space-y-6">
                 <p>
-                  I'm Aswin MV, currently working as a UI/UX Designer at Nexotech, designing apps, ERP software, and SaaS products. With over 3 years of
-                  design experience, I've worked with clients across India, the
-                  Middle East, and Australia. I specialize in creating intuitive interfaces for complex enterprise challenges while combining creativity with strategy to design
-                  experiences that inspire and connect with people.
+                  {t('about.content')}
                 </p>
               </div>
             </div>
@@ -146,10 +147,10 @@ function App() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500">
-              © {new Date().getFullYear()} Aswin MV. All rights reserved.
+              {t('footer.copyright').replace('{year}', new Date().getFullYear().toString())}
             </p>
             <p className="text-sm text-gray-500">
-              Designed & built with care
+              {t('footer.credit')}
             </p>
           </div>
         </div>
