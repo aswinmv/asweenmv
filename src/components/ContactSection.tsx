@@ -1,42 +1,16 @@
 import { useState } from 'react';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { supabase } from '../lib/supabase';
 
 export default function ContactSection() {
   const { t } = useLanguage();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        });
-
-      if (error) throw error;
-
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+    const subject = encodeURIComponent(`Portfolio contact from ${formData.name}`);
+    const body = encodeURIComponent(`${formData.message}\n\n— ${formData.name} (${formData.email})`);
+    window.location.href = `mailto:work@aswinmv.in?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -97,23 +71,10 @@ export default function ContactSection() {
 
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full sm:w-auto px-8 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto px-8 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-all duration-200"
             >
-              {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
+              {t('contact.form.send')}
             </button>
-
-            {submitStatus === 'success' && (
-              <div className="p-4 bg-green-50 border border-green-200 rounded-md">
-                <p className="text-sm text-green-800">{t('contact.form.success')}</p>
-              </div>
-            )}
-
-            {submitStatus === 'error' && (
-              <div className="p-4 bg-red-50 border border-red-200 rounded-md">
-                <p className="text-sm text-red-800">{t('contact.form.error')}</p>
-              </div>
-            )}
           </form>
 
           <div className="pt-6 border-t border-gray-100">
