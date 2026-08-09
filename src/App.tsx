@@ -9,7 +9,6 @@ const ContactSection = lazy(() => import('./components/ContactSection'));
 function App() {
   const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState('about');
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const navigationItems = [
     { id: 'about', label: t('nav.about') },
@@ -19,8 +18,6 @@ function App() {
   ];
 
   useEffect(() => {
-    setIsLoaded(true);
-    
     const handleScroll = () => {
       const sections = ['about', 'work', 'personal', 'contact'];
       const currentSection = sections.find(section => {
@@ -48,7 +45,7 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <div className="min-h-screen bg-white">
       {/* Skip to main content for accessibility */}
       <a
         href="#main-content"
