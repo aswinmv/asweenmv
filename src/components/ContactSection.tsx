@@ -1,13 +1,13 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { supabase } from '../lib/supabase';
 
 export default function ContactSection() {
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const formRef = useRef<HTMLFormElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,19 +15,22 @@ export default function ContactSection() {
     setSubmitStatus('idle');
 
     try {
-      if (formRef.current && iframeRef.current) {
-        formRef.current.target = iframeRef.current.name;
-        formRef.current.submit();
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        });
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
+      if (error) throw error;
 
-        setSubmitStatus('success');
-        formRef.current.reset();
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
 
-        setTimeout(() => {
-          setSubmitStatus('idle');
-        }, 5000);
-      }
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -46,52 +49,49 @@ export default function ContactSection() {
             {t('contact.intro')}
           </p>
 
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScnnSmufOO-Q08dZ3BS4ENib_1PmuMpxjDyxEf5PRSvrUQVEA/formResponse"
-            method="POST"
-            className="space-y-6"
-          >
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
-                Name
+                {t('contact.form.name')}
               </label>
               <input
                 type="text"
                 id="name"
-                name="entry.582715265"
                 required
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200"
-                placeholder="Your name"
+                placeholder={t('contact.form.namePlaceholder')}
               />
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
-                Email
+                {t('contact.form.email')}
               </label>
               <input
                 type="email"
                 id="email"
-                name="entry.600569406"
                 required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200"
-                placeholder="your@email.com"
+                placeholder={t('contact.form.emailPlaceholder')}
               />
             </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
-                Message
+                {t('contact.form.message')}
               </label>
               <textarea
                 id="message"
-                name="entry.1147392960"
                 required
                 rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 resize-none"
-                placeholder="Your message..."
+                placeholder={t('contact.form.messagePlaceholder')}
               />
             </div>
 
@@ -100,36 +100,29 @@ export default function ContactSection() {
               disabled={isSubmitting}
               className="w-full sm:w-auto px-8 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+              {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
             </button>
 
             {submitStatus === 'success' && (
               <div className="p-4 bg-green-50 border border-green-200 rounded-md">
-                <p className="text-sm text-green-800">Thank you for your message! I'll get back to you soon.</p>
+                <p className="text-sm text-green-800">{t('contact.form.success')}</p>
               </div>
             )}
 
             {submitStatus === 'error' && (
               <div className="p-4 bg-red-50 border border-red-200 rounded-md">
-                <p className="text-sm text-red-800">Something went wrong. Please try again or email me directly.</p>
+                <p className="text-sm text-red-800">{t('contact.form.error')}</p>
               </div>
             )}
           </form>
 
-          <iframe
-            ref={iframeRef}
-            name="google-form-iframe"
-            className="hidden"
-            title="Google Form submission"
-          />
-
           <div className="pt-6 border-t border-gray-100">
-            <p className="text-sm text-gray-600 mb-4">Or connect with me on:</p>
+            <p className="text-sm text-gray-600 mb-4">{t('contact.connect')}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="mailto:work@aswinmv.in"
                 className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
-                aria-label="Send email to work@aswinmv.in"
+                aria-label={t('contact.email')}
               >
                 <Mail size={18} aria-hidden="true" />
                 <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
