@@ -20,19 +20,19 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       heading: 'About',
-      content: 'I\'m Aswin MV, currently working as a UI/UX Designer at Nexotech, designing apps, ERP software, and SaaS products. With over 3 years of design experience, I\'ve worked with clients across India, the Middle East, and Australia. I specialize in creating intuitive interfaces for complex enterprise challenges while combining creativity with strategy to design experiences that inspire and connect with people.',
+      content: 'I\'m Aswin MV, currently working in Social Media & Influencer Marketing at Fulva by Calicut Cousins, driving growth through creative content strategy and influencer partnerships. With over 3 years of experience across design and marketing, I\'ve worked with clients across India, the Middle East, and Australia. I combine creativity with strategy to build campaigns and experiences that inspire, connect, and grow brands.',
     },
     work: {
       heading: 'Work',
       current: {
-        title: 'UI/UX Designer at Nexotech',
+        title: 'Social Media & Influencer Marketing at Fulva by Calicut Cousins',
         status: 'Current Role',
-        description: 'Designing intuitive interfaces and user experiences for mobile apps, ERP software, and SaaS products. Focused on solving complex enterprise challenges through thoughtful design and user-centered methodologies.',
+        description: 'Leading social media strategy and influencer partnerships for Fulva by Calicut Cousins. Managing end-to-end campaigns from concept to execution, building authentic creator collaborations, growing community engagement, and driving brand awareness across platforms. Responsible for content planning, influencer outreach, performance tracking, and shaping the brand\'s digital voice.',
       },
       previous: {
-        title: 'Visual Designer at Whoots',
+        title: 'Creative Strategist at Whoots',
         status: 'Previous Role',
-        description: 'Creating innovative design solutions and strategic creative direction for diverse projects, focusing on user-centered experiences that drive engagement.',
+        description: 'Developed and executed creative strategies across brand, content, and campaign initiatives. Translated business goals into compelling creative directions, led cross-functional collaboration, and crafted narratives that resonated with target audiences to drive meaningful engagement.',
       },
       freelance: {
         title: 'Freelance Graphic Designer',
@@ -42,7 +42,7 @@ export const translations: Record<Language, Translation> = {
       skills: {
         title: 'Core Skills',
         status: 'Expertise Areas',
-        items: ['Product Design', 'Graphic Design', 'Creative Strategy', 'Illustration', 'UX/UI', 'Figma', 'SMM'],
+        items: ['Social Media Marketing', 'Influencer Strategy', 'Creative Strategy', 'Content Strategy', 'Brand Growth', 'Graphic Design', 'Figma'],
       },
       projects: {
         title: 'Featured Projects',
@@ -103,19 +103,19 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       heading: 'Acerca de',
-      content: 'Soy Aswin MV, actualmente trabajo como Diseñador UI/UX en Nexotech, diseñando aplicaciones, software ERP y productos SaaS. Con más de 3 años de experiencia en diseño, he trabajado con clientes en India, Oriente Medio y Australia. Me especializo en crear interfaces intuitivas para desafíos empresariales complejos, combinando creatividad con estrategia para diseñar experiencias que inspiren y conecten con las personas.',
+      content: 'Soy Aswin MV, actualmente trabajo en Marketing de Redes Sociales e Influencers en Fulva by Calicut Cousins, impulsando el crecimiento a través de estrategia de contenido creativo y colaboraciones con influencers. Con más de 3 años de experiencia en diseño y marketing, he trabajado con clientes en India, Oriente Medio y Australia. Combino creatividad con estrategia para crear campañas y experiencias que inspiran, conectan y hacen crecer las marcas.',
     },
     work: {
       heading: 'Trabajo',
       current: {
-        title: 'Diseñador UI/UX en Nexotech',
+        title: 'Marketing en Redes Sociales e Influencers en Fulva by Calicut Cousins',
         status: 'Rol Actual',
-        description: 'Diseñando interfaces intuitivas y experiencias de usuario para aplicaciones móviles, software ERP y productos SaaS. Enfocado en resolver desafíos empresariales complejos a través de diseño reflexivo y metodologías centradas en el usuario.',
+        description: 'Liderando la estrategia de redes sociales y asociaciones con influencers para Fulva by Calicut Cousins. Gestionando campañas de principio a fin, construyendo colaboraciones auténticas con creadores, impulsando el engagement comunitario y aumentando el conocimiento de marca en todas las plataformas. Responsable de la planificación de contenido, captación de influencers, análisis de rendimiento y la voz digital de la marca.',
       },
       previous: {
-        title: 'Diseñador Visual en Whoots',
+        title: 'Estratega Creativo en Whoots',
         status: 'Rol Anterior',
-        description: 'Creando soluciones de diseño innovadoras y dirección creativa estratégica para proyectos diversos, enfocándome en experiencias centradas en el usuario que impulsen la participación.',
+        description: 'Desarrollé y ejecuté estrategias creativas en iniciativas de marca, contenido y campañas. Traduje objetivos de negocio en direcciones creativas convincentes, lideré la colaboración entre equipos y creé narrativas que resonaron con el público objetivo para impulsar un engagement significativo.',
       },
       freelance: {
         title: 'Diseñador Gráfico Independiente',
@@ -125,7 +125,7 @@ export const translations: Record<Language, Translation> = {
       skills: {
         title: 'Habilidades Principales',
         status: 'Áreas de Experiencia',
-        items: ['Diseño de Productos', 'Diseño Gráfico', 'Estrategia Creativa', 'Ilustración', 'UX/UI', 'Figma', 'SMM'],
+        items: ['Marketing en Redes Sociales', 'Estrategia de Influencers', 'Estrategia Creativa', 'Estrategia de Contenido', 'Crecimiento de Marca', 'Diseño Gráfico', 'Figma'],
       },
       projects: {
         title: 'Proyectos Destacados',
@@ -186,19 +186,19 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       heading: 'À propos',
-      content: 'Je suis Aswin MV, actuellement Designer UI/UX chez Nexotech, concevant des applications, des logiciels ERP et des produits SaaS. Avec plus de 3 ans d\'expérience en design, j\'ai travaillé avec des clients en Inde, au Moyen-Orient et en Australie. Je me spécialise dans la création d\'interfaces intuitives pour résoudre des défis commerciaux complexes, en combinant créativité et stratégie pour concevoir des expériences qui inspirent et connectent avec les gens.',
+      content: 'Je suis Aswin MV, actuellement en Marketing Réseaux Sociaux & Influenceurs chez Fulva by Calicut Cousins, stimulant la croissance grâce à une stratégie de contenu créatif et des partenariats d\'influenceurs. Avec plus de 3 ans d\'expérience en design et marketing, j\'ai travaillé avec des clients en Inde, au Moyen-Orient et en Australie. Je combine créativité et stratégie pour créer des campagnes et des expériences qui inspirent, connectent et font grandir les marques.',
     },
     work: {
       heading: 'Travail',
       current: {
-        title: 'Concepteur UI/UX chez Nexotech',
+        title: 'Marketing Réseaux Sociaux & Influenceurs chez Fulva by Calicut Cousins',
         status: 'Poste Actuel',
-        description: 'Concevoir des interfaces intuitives et des expériences utilisateur pour les applications mobiles, les logiciels ERP et les produits SaaS. Concentré sur la résolution des défis commerciaux complexes par un design réfléchi et des méthodologies centrées sur l\'utilisateur.',
+        description: 'Direction de la stratégie sur les réseaux sociaux et des partenariats avec influenceurs pour Fulva by Calicut Cousins. Gestion de campagnes de A à Z, création de collaborations authentiques avec des créateurs, développement de l\'engagement communautaire et accroissement de la notoriété de la marque sur toutes les plateformes. Responsable de la planification de contenu, de la prospection d\'influenceurs, du suivi des performances et de la voix numérique de la marque.',
       },
       previous: {
-        title: 'Concepteur Visuel chez Whoots',
+        title: 'Stratège Créatif chez Whoots',
         status: 'Poste Précédent',
-        description: 'Créer des solutions de design innovantes et une direction créative stratégique pour des projets diversifiés, en mettant l\'accent sur les expériences centrées sur l\'utilisateur qui stimulent l\'engagement.',
+        description: 'Développement et exécution de stratégies créatives pour des initiatives de marque, de contenu et de campagnes. Traduction des objectifs commerciaux en directions créatives convaincantes, leadership de la collaboration interservices et création de narratifs qui résonnent auprès du public cible pour stimuler un engagement significatif.',
       },
       freelance: {
         title: 'Designer Graphique Indépendant',
@@ -208,7 +208,7 @@ export const translations: Record<Language, Translation> = {
       skills: {
         title: 'Compétences Principales',
         status: 'Domaines d\'Expertise',
-        items: ['Design de Produits', 'Design Graphique', 'Stratégie Créative', 'Illustration', 'UX/UI', 'Figma', 'SMM'],
+        items: ['Marketing Réseaux Sociaux', 'Stratégie d\'Influenceurs', 'Stratégie Créative', 'Stratégie de Contenu', 'Croissance de Marque', 'Design Graphique', 'Figma'],
       },
       projects: {
         title: 'Projets en Vedette',
@@ -269,19 +269,19 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       heading: 'Über',
-      content: 'Ich bin Aswin MV und arbeite derzeit als UI/UX-Designer bei Nexotech und entwerfe Apps, ERP-Software und SaaS-Produkte. Mit über 3 Jahren Designerfahrung habe ich mit Kunden in Indien, dem Nahen Osten und Australien zusammengearbeitet. Ich spezialisiere mich auf die Erstellung intuitiver Schnittstellen für komplexe Geschätsherausforderungen und kombiniere Kreativität mit Strategie, um Erfahrungen zu schaffen, die Menschen inspirieren und verbinden.',
+      content: 'Ich bin Aswin MV und arbeite derzeit im Social-Media- und Influencer-Marketing bei Fulva by Calicut Cousins, wo ich Wachstum durch kreative Content-Strategie und Influencer-Partnerschaften vorantreibe. Mit über 3 Jahren Erfahrung in Design und Marketing habe ich mit Kunden in Indien, dem Nahen Osten und Australien zusammengearbeitet. Ich verbinde Kreativität mit Strategie, um Kampagnen und Erlebnisse zu schaffen, die inspirieren, verbinden und Marken wachsen lassen.',
     },
     work: {
       heading: 'Arbeit',
       current: {
-        title: 'UI/UX-Designer bei Nexotech',
+        title: 'Social Media & Influencer Marketing bei Fulva by Calicut Cousins',
         status: 'Aktuelle Position',
-        description: 'Entwerfen von intuitiven Schnittstellen und Benutzererfahrungen für mobile Apps, ERP-Software und SaaS-Produkte. Konzentriert auf die Lösung komplexer Geschätsherausforderungen durch durchdachtes Design und benutzerzentrierte Methoden.',
+        description: 'Leitung der Social-Media-Strategie und Influencer-Partnerschaften für Fulva by Calicut Cousins. Verwaltung von Kampagnen von Konzept bis Umsetzung, Aufbau authentischer Creator-Kollaborationen, Förderung des Community-Engagements und Steigerung der Markenbekanntheit auf allen Plattformen. Verantwortlich für Content-Planung, Influencer-Gewinnung, Leistungstracking und die digitale Stimme der Marke.',
       },
       previous: {
-        title: 'Visueller Designer bei Whoots',
+        title: 'Kreativstratege bei Whoots',
         status: 'Vorherige Position',
-        description: 'Erstellung innovativer Designlösungen und strategischer kreativer Richtung für vielfältige Projekte mit Fokus auf benutzerzentrierte Erfahrungen, die Engagement fördern.',
+        description: 'Entwicklung und Umsetzung kreativer Strategien für Marken-, Content- und Kampagneninitiativen. Übersetzung von Geschäftszielen in überzeugende kreative Richtungen, Leitung der abteilungsübergreifenden Zusammenarbeit und Erstellung von Narrativen, die beim Zielpublikum Resonanz fanden und sinnvolles Engagement förderten.',
       },
       freelance: {
         title: 'Freiberuflicher Grafikdesigner',
@@ -291,7 +291,7 @@ export const translations: Record<Language, Translation> = {
       skills: {
         title: 'Kernkompetenzen',
         status: 'Fachgebiete',
-        items: ['Produktdesign', 'Grafikdesign', 'Kreativstrategie', 'Illustration', 'UX/UI', 'Figma', 'SMM'],
+        items: ['Social Media Marketing', 'Influencer-Strategie', 'Kreativstrategie', 'Content-Strategie', 'Markenwachstum', 'Grafikdesign', 'Figma'],
       },
       projects: {
         title: 'Ausgewählte Projekte',
@@ -352,19 +352,19 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       heading: 'Sobre',
-      content: 'Sou Aswin MV, atualmente trabalhando como Designer UI/UX na Nexotech, projetando aplicativos, software ERP e produtos SaaS. Com mais de 3 anos de experiência em design, trabalhei com clientes na Índia, Oriente Médio e Austrália. Especializo-me em criar interfaces intuitivas para desafios empresariais complexos, combinando criatividade com estratégia para projetar experiências que inspirem e conectem com as pessoas.',
+      content: 'Sou Aswin MV, atualmente trabalho em Marketing de Redes Sociais e Influencers na Fulva by Calicut Cousins, impulsionando o crescimento através de estratégia de conteúdo criativo e parcerias com influencers. Com mais de 3 anos de experiência em design e marketing, trabalhei com clientes na Índia, Oriente Médio e Austrália. Combino criatividade com estratégia para criar campanhas e experiências que inspiram, conectam e fazem as marcas crescerem.',
     },
     work: {
       heading: 'Trabalho',
       current: {
-        title: 'Designer UI/UX na Nexotech',
+        title: 'Marketing de Redes Sociais e Influencers na Fulva by Calicut Cousins',
         status: 'Cargo Atual',
-        description: 'Projetando interfaces intuitivas e experiências do usuário para aplicativos móveis, software ERP e produtos SaaS. Focado em resolver desafios empresariais complexos por meio de design reflexivo e metodologias centradas no usuário.',
+        description: 'Liderando a estratég de redes sociais e parcerias com influencers para Fulva by Calicut Cousins. Gerenciando campanhas do conceito à execução, construindo colaborações autênticas com criadores, impulsionando o engajamento da comunidade e aumentando o reconhecimento da marca em todas as plataformas. Responsável pelo planejamento de conteúdo, captação de influencers, análise de desempenho e pela voz digital da marca.',
       },
       previous: {
-        title: 'Designer Visual na Whoots',
+        title: 'Estrategista Criativo na Whoots',
         status: 'Cargo Anterior',
-        description: 'Criando soluções de design inovadoras e direção criativa estratégica para projetos diversos, focando em experiências centradas no usuário que impulsionam o engajamento.',
+        description: 'Desenvolvi e executei estratégias criativas em iniciativas de marca, conteúdo e campanhas. Traduzi objetivos de negócios em direções criativas convincentes, liderei a colaboração entre equipes e criei narrativas que ressoaram com o público-alvo para impulsionar um engajamento significativo.',
       },
       freelance: {
         title: 'Designer Gráfico Freelancer',
@@ -374,7 +374,7 @@ export const translations: Record<Language, Translation> = {
       skills: {
         title: 'Habilidades Principais',
         status: 'Áreas de Expertise',
-        items: ['Design de Produtos', 'Design Gráfico', 'Estratégia Criativa', 'Ilustração', 'UX/UI', 'Figma', 'SMM'],
+        items: ['Marketing de Redes Sociais', 'Estratégia de Influencers', 'Estratégia Criativa', 'Estratégia de Conteúdo', 'Crescimento de Marca', 'Design Gráfico', 'Figma'],
       },
       projects: {
         title: 'Projetos em Destaque',
@@ -435,19 +435,19 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       heading: 'について',
-      content: '私はAswin MVで、現在NexotechでUI/UXデザイナーとして働いており、アプリ、ERPソフトウェア、SaaS製品を設計しています。3年以上のデザイン経験を持ち、インド、中東、オーストラリアの顧客と協力してきました。複雑なエンタープライズの課題に対して直感的なインターフェースを作成し、創造性と戦略を組み合わせて、人々を鼓舞し、つながりを持つ経験を設計することに特化しています。',
+      content: '私はAswin MVで、現在Fulva by Calicut Cousinsでソーシャルメディア＆インフルエンサーマーケティングを担当し、クリエイティブなコンテンツ戦略とインフルエンサーパートナーシップを通じて成長を推進しています。デザインとマーケティングで3年以上の経験を持ち、インド、中東、オーストラリアの顧客と協力してきました。創造性と戦略を組み合わせて、インスピレーションを与え、つながりを持ち、ブランドを成長させるキャンペーンと体験を作り出しています。',
     },
     work: {
       heading: '仕事',
       current: {
-        title: 'Nexotechでの UI/UXデザイナー',
+        title: 'Fulva by Calicut Cousins ソーシャルメディア＆インフルエンサーマーケティング',
         status: '現在の職務',
-        description: 'モバイルアプリ、ERPソフトウェア、SaaS製品向けの直感的なインターフェースとユーザーエクスペリエンスを設計。思慮深いデザインとユーザー中心の方法論を通じて、複雑なビジネス上の課題の解決に注力しています。',
+        description: 'Fulva by Calicut Cousinsのソーシャルメディア戦略とインフルエンサーパートナーシップを主導。コンセプトから実行までのキャンペーンを管理し、クリエイターとの本物のコラボレーションを構築し、コミュニティエンゲージメントを高め、全プラットフォームでのブランド認知度を向上させています。コンテンツ計画、インフルエンサーアウトリーチ、パフォーマンス追跡、ブランドのデジタルの声を担当。',
       },
       previous: {
-        title: 'Whootsでのビジュアルデザイナー',
+        title: 'Whoots クリエイティブストラテジスト',
         status: '前職',
-        description: '多様なプロジェクトのための革新的なデザインソリューションと戦略的なクリエイティブ方向性を作成し、ユーザー中心のエクスペリエンスに焦点を当ててエンゲージメントを促進しています。',
+        description: 'ブランド、コンテンツ、キャンペーンの取り組みにおいてクリエイティブ戦略を開発・実行。ビジネス目標を説得力のあるクリエイティブの方向性に変換し、部門間のコラボレーションを主導し、ターゲット層に響くナラティブを作成して有意義なエンゲージメントを促進しました。',
       },
       freelance: {
         title: 'フリーランスグラフィックデザイナー',
@@ -457,7 +457,7 @@ export const translations: Record<Language, Translation> = {
       skills: {
         title: 'コアスキル',
         status: '専門知識分野',
-        items: ['プロダクトデザイン', 'グラフィックデザイン', 'クリエイティブ戦略', 'イラスト', 'UX/UI', 'Figma', 'SMM'],
+        items: ['ソーシャルメディアマーケティング', 'インフルエンサー戦略', 'クリエイティブ戦略', 'コンテンツ戦略', 'ブランド成長', 'グラフィックデザイン', 'Figma'],
       },
       projects: {
         title: '注目プロジェクト',
@@ -518,19 +518,19 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       heading: '关于',
-      content: '我是Aswin MV，目前在Nexotech担任UI/UX设计师，设计应用程序、ERP软件和SaaS产品。拥有超过3年的设计经验，我曾与印度、中东和澳大利亚的客户合作。我专门为复杂的企业挑战创建直观的界面，将创意与策略相结合，设计激励并与人们建立联系的体验。',
+      content: '我是Aswin MV，目前在Fulva by Calicut Cousins担任社交媒体与网红营销，通过创意内容策略和网红合作推动增长。拥有超过3年的设计和营销经验，曾与印度、中东和澳大利亚的客户合作。我将创意与策略相结合，打造能够启发、连接并促进品牌增长的营销活动与体验。',
     },
     work: {
       heading: '工作',
       current: {
-        title: 'Nexotech UI/UX 设计师',
+        title: 'Fulva by Calicut Cousins 社交媒体与网红营销',
         status: '现任职位',
-        description: '为移动应用程序、ERP软件和SaaS产品设计直观的界面和用户体验。致力于通过深思熟虑的设计和以用户为中心的方法论解决复杂的业务挑战。',
+        description: '负责Fulva by Calicut Cousins的社交媒体策略和网红合作。从概念到执行全面管理活动，建立与创作者的真实合作，提升社区互动，并在各平台推动品牌知名度。负责内容规划、网红拓展、效果追踪以及品牌的数字声音。',
       },
       previous: {
-        title: 'Whoots视觉设计师',
+        title: 'Whoots 创意策略师',
         status: '前职位',
-        description: '为多样化的项目创造创新的设计解决方案和战略创意方向，重点关注以用户为中心的体验，促进参与度。',
+        description: '在品牌、内容和活动方面制定并执行创意策略。将商业目标转化为引人入胜的创意方向，领导跨职能协作，打造与目标受众产生共鸣的品牌叙事，推动有意义的参与度。',
       },
       freelance: {
         title: '自由平面设计师',
@@ -540,7 +540,7 @@ export const translations: Record<Language, Translation> = {
       skills: {
         title: '核心技能',
         status: '专业领域',
-        items: ['产品设计', '平面设计', '创意策略', '插画', 'UX/UI', 'Figma', 'SMM'],
+        items: ['社交媒体营销', '网红策略', '创意策略', '内容策略', '品牌增长', '平面设计', 'Figma'],
       },
       projects: {
         title: '精选项目',
