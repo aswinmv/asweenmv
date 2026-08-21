@@ -16,7 +16,7 @@ export const translations: Record<Language, Translation> = {
     },
     header: {
       greeting: 'Hi, my name is Aswin MV',
-      title: 'Product Designer & Creative Strategist',
+      title: 'Social Media & Influencer Marketing Specialist',
     },
     about: {
       heading: 'About',
@@ -99,7 +99,7 @@ export const translations: Record<Language, Translation> = {
     },
     header: {
       greeting: 'Hola, mi nombre es Aswin MV',
-      title: 'Diseñador de Productos y Estratega Creativo',
+      title: 'Especialista en Marketing de Redes Sociales e Influencers',
     },
     about: {
       heading: 'Acerca de',
@@ -182,7 +182,7 @@ export const translations: Record<Language, Translation> = {
     },
     header: {
       greeting: 'Bonjour, je m\'appelle Aswin MV',
-      title: 'Concepteur de Produits et Stratège Créatif',
+      title: 'Spécialiste Marketing Réseaux Sociaux & Influenceurs',
     },
     about: {
       heading: 'À propos',
@@ -265,7 +265,7 @@ export const translations: Record<Language, Translation> = {
     },
     header: {
       greeting: 'Hallo, mein Name ist Aswin MV',
-      title: 'Produktdesigner und Kreativstratege',
+      title: 'Social-Media- & Influencer-Marketing Spezialist',
     },
     about: {
       heading: 'Über',
@@ -348,7 +348,7 @@ export const translations: Record<Language, Translation> = {
     },
     header: {
       greeting: 'Olá, meu nome é Aswin MV',
-      title: 'Designer de Produtos e Estrategista Criativo',
+      title: 'Especialista em Marketing de Redes Sociais e Influencers',
     },
     about: {
       heading: 'Sobre',
@@ -431,7 +431,7 @@ export const translations: Record<Language, Translation> = {
     },
     header: {
       greeting: 'こんにちは、私の名前はAswin MVです',
-      title: 'プロダクトデザイナー＆クリエイティブストラテジスト',
+      title: 'ソーシャルメディア＆インフルエンサーマーケティングスペシャリスト',
     },
     about: {
       heading: 'について',
@@ -514,7 +514,7 @@ export const translations: Record<Language, Translation> = {
     },
     header: {
       greeting: '你好，我叫Aswin MV',
-      title: '产品设计师和创意策略家',
+      title: '社交媒体与网红营销专家',
     },
     about: {
       heading: '关于',

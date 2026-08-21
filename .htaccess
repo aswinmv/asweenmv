@@ -28,6 +28,8 @@
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/gif "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType application/json "access plus 1 month"
 </IfModule>
 
 # Security headers
