@@ -96,7 +96,7 @@ function App() {
             <div className="max-w-2xl flex flex-col md:flex-row md:items-center md:gap-8 gap-6">
               <img
                 src="/profile-pic_(4).png"
-                alt="Aswin MV profile picture"
+                alt="Aswin MV — Social Media & Influencer Marketing Specialist at Fulva by Calicut Cousins"
                 className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover flex-shrink-0 shadow-lg"
               />
               <div>

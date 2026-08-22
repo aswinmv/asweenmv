@@ -1,0 +1,18 @@
+{
+  "name": "Aswin MV — Social Media & Influencer Marketing Specialist",
+  "short_name": "Aswin MV",
+  "description": "Portfolio of Aswin MV — Social Media & Influencer Marketing Specialist at Fulva by Calicut Cousins, Kerala, India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/profile-pic_(4).png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
