@@ -8,6 +8,7 @@ export const translations: Record<Language, Translation> = {
   en: {
     nav: {
       about: 'About',
+      experience: 'Experience',
       work: 'Work',
       personal: 'Personal',
       contact: 'Contact',
@@ -24,6 +25,16 @@ export const translations: Record<Language, Translation> = {
     },
     work: {
       heading: 'Work',
+      projects: {
+        title: 'Featured Projects',
+        raksha: 'Raksha Inauguration Promo',
+        rakshaDesc: 'Promotional campaign content for the Raksha inauguration event.',
+        behance: 'View Portfolio on Behance',
+        dribbble: 'Creative Work on Dribbble',
+      },
+    },
+    experience: {
+      heading: 'Experience',
       current: {
         title: 'Social Media & Influencer Marketing at Fulva by Calicut Cousins',
         status: 'Current Role',
@@ -43,11 +54,6 @@ export const translations: Record<Language, Translation> = {
         title: 'Core Skills',
         status: 'Expertise Areas',
         items: ['Social Media Marketing', 'Influencer Strategy', 'Creative Strategy', 'Content Strategy', 'Brand Growth', 'Graphic Design', 'Figma'],
-      },
-      projects: {
-        title: 'Featured Projects',
-        behance: 'View Portfolio on Behance',
-        dribbble: 'Creative Work on Dribbble',
       },
     },
     personal: {
@@ -92,6 +98,7 @@ export const translations: Record<Language, Translation> = {
     nav: {
       about: 'Acerca de',
       work: 'Trabajo',
+      experience: 'Experiencia',
       personal: 'Personal',
       contact: 'Contacto',
       skipToMain: 'Saltar al contenido principal',
@@ -107,6 +114,16 @@ export const translations: Record<Language, Translation> = {
     },
     work: {
       heading: 'Trabajo',
+      projects: {
+        title: 'Proyectos Destacados',
+        raksha: 'Promo de Inauguración de Raksha',
+        rakshaDesc: 'Contenido de campaña promocional para el evento de inauguración de Raksha.',
+        behance: 'Ver Portafolio en Behance',
+        dribbble: 'Trabajo Creativo en Dribbble',
+      },
+    },
+    experience: {
+      heading: 'Experiencia',
       current: {
         title: 'Marketing en Redes Sociales e Influencers en Fulva by Calicut Cousins',
         status: 'Rol Actual',
@@ -126,11 +143,6 @@ export const translations: Record<Language, Translation> = {
         title: 'Habilidades Principales',
         status: 'Áreas de Experiencia',
         items: ['Marketing en Redes Sociales', 'Estrategia de Influencers', 'Estrategia Creativa', 'Estrategia de Contenido', 'Crecimiento de Marca', 'Diseño Gráfico', 'Figma'],
-      },
-      projects: {
-        title: 'Proyectos Destacados',
-        behance: 'Ver Portafolio en Behance',
-        dribbble: 'Trabajo Creativo en Dribbble',
       },
     },
     personal: {
@@ -175,6 +187,7 @@ export const translations: Record<Language, Translation> = {
     nav: {
       about: 'À propos',
       work: 'Travail',
+      experience: 'Expérience',
       personal: 'Personnel',
       contact: 'Contact',
       skipToMain: 'Aller au contenu principal',
@@ -190,6 +203,16 @@ export const translations: Record<Language, Translation> = {
     },
     work: {
       heading: 'Travail',
+      projects: {
+        title: 'Projets en Vedette',
+        raksha: 'Promo d\'Inauguration de Raksha',
+        rakshaDesc: 'Contenu de campagne promotionnelle pour l\'événement d\'inauguration de Raksha.',
+        behance: 'Voir Portefeuille sur Behance',
+        dribbble: 'Travail Créatif sur Dribbble',
+      },
+    },
+    experience: {
+      heading: 'Expérience',
       current: {
         title: 'Marketing Réseaux Sociaux & Influenceurs chez Fulva by Calicut Cousins',
         status: 'Poste Actuel',
@@ -209,11 +232,6 @@ export const translations: Record<Language, Translation> = {
         title: 'Compétences Principales',
         status: 'Domaines d\'Expertise',
         items: ['Marketing Réseaux Sociaux', 'Stratégie d\'Influenceurs', 'Stratégie Créative', 'Stratégie de Contenu', 'Croissance de Marque', 'Design Graphique', 'Figma'],
-      },
-      projects: {
-        title: 'Projets en Vedette',
-        behance: 'Voir Portefeuille sur Behance',
-        dribbble: 'Travail Créatif sur Dribbble',
       },
     },
     personal: {
@@ -258,6 +276,7 @@ export const translations: Record<Language, Translation> = {
     nav: {
       about: 'Über',
       work: 'Arbeit',
+      experience: 'Erfahrung',
       personal: 'Persönlich',
       contact: 'Kontakt',
       skipToMain: 'Zum Hauptinhalt springen',
@@ -273,6 +292,16 @@ export const translations: Record<Language, Translation> = {
     },
     work: {
       heading: 'Arbeit',
+      projects: {
+        title: 'Ausgewählte Projekte',
+        raksha: 'Raksha-Eröffnungspromo',
+        rakshaDesc: 'Werbekampagneninhalte für die Raksha-Eröffnungsveranstaltung.',
+        behance: 'Portfolio auf Behance anzeigen',
+        dribbble: 'Kreative Arbeiten auf Dribbble',
+      },
+    },
+    experience: {
+      heading: 'Erfahrung',
       current: {
         title: 'Social Media & Influencer Marketing bei Fulva by Calicut Cousins',
         status: 'Aktuelle Position',
@@ -292,11 +321,6 @@ export const translations: Record<Language, Translation> = {
         title: 'Kernkompetenzen',
         status: 'Fachgebiete',
         items: ['Social Media Marketing', 'Influencer-Strategie', 'Kreativstrategie', 'Content-Strategie', 'Markenwachstum', 'Grafikdesign', 'Figma'],
-      },
-      projects: {
-        title: 'Ausgewählte Projekte',
-        behance: 'Portfolio auf Behance anzeigen',
-        dribbble: 'Kreative Arbeiten auf Dribbble',
       },
     },
     personal: {
@@ -341,6 +365,7 @@ export const translations: Record<Language, Translation> = {
     nav: {
       about: 'Sobre',
       work: 'Trabalho',
+      experience: 'Experiência',
       personal: 'Pessoal',
       contact: 'Contato',
       skipToMain: 'Ir para o conteúdo principal',
@@ -356,6 +381,16 @@ export const translations: Record<Language, Translation> = {
     },
     work: {
       heading: 'Trabalho',
+      projects: {
+        title: 'Projetos em Destaque',
+        raksha: 'Promo de Inauguração da Raksha',
+        rakshaDesc: 'Conteúdo de campanha promocional para o evento de inauguração da Raksha.',
+        behance: 'Ver Portfólio no Behance',
+        dribbble: 'Trabalho Criativo no Dribbble',
+      },
+    },
+    experience: {
+      heading: 'Experiência',
       current: {
         title: 'Marketing de Redes Sociais e Influencers na Fulva by Calicut Cousins',
         status: 'Cargo Atual',
@@ -375,11 +410,6 @@ export const translations: Record<Language, Translation> = {
         title: 'Habilidades Principais',
         status: 'Áreas de Expertise',
         items: ['Marketing de Redes Sociais', 'Estratégia de Influencers', 'Estratégia Criativa', 'Estratégia de Conteúdo', 'Crescimento de Marca', 'Design Gráfico', 'Figma'],
-      },
-      projects: {
-        title: 'Projetos em Destaque',
-        behance: 'Ver Portfólio no Behance',
-        dribbble: 'Trabalho Criativo no Dribbble',
       },
     },
     personal: {
@@ -424,6 +454,7 @@ export const translations: Record<Language, Translation> = {
     nav: {
       about: 'について',
       work: '仕事',
+      experience: '経歴',
       personal: '個人',
       contact: 'お問い合わせ',
       skipToMain: 'メインコンテンツにスキップ',
@@ -439,6 +470,16 @@ export const translations: Record<Language, Translation> = {
     },
     work: {
       heading: '仕事',
+      projects: {
+        title: '注目プロジェクト',
+        raksha: 'Raksha オープニングプロモ',
+        rakshaDesc: 'Rakshaオープニングイベントのプロモーションキャンペーンコンテンツ。',
+        behance: 'Behanceでポートフォリオを表示',
+        dribbble: 'Dribbbleでのクリエイティブ作品',
+      },
+    },
+    experience: {
+      heading: '経歴',
       current: {
         title: 'Fulva by Calicut Cousins ソーシャルメディア＆インフルエンサーマーケティング',
         status: '現在の職務',
@@ -458,11 +499,6 @@ export const translations: Record<Language, Translation> = {
         title: 'コアスキル',
         status: '専門知識分野',
         items: ['ソーシャルメディアマーケティング', 'インフルエンサー戦略', 'クリエイティブ戦略', 'コンテンツ戦略', 'ブランド成長', 'グラフィックデザイン', 'Figma'],
-      },
-      projects: {
-        title: '注目プロジェクト',
-        behance: 'Behanceでポートフォリオを表示',
-        dribbble: 'Dribbbleでのクリエイティブ作品',
       },
     },
     personal: {
@@ -507,6 +543,7 @@ export const translations: Record<Language, Translation> = {
     nav: {
       about: '关于',
       work: '工作',
+      experience: '经历',
       personal: '个人',
       contact: '联系',
       skipToMain: '跳转到主要内容',
@@ -522,6 +559,16 @@ export const translations: Record<Language, Translation> = {
     },
     work: {
       heading: '工作',
+      projects: {
+        title: '精选项目',
+        raksha: 'Raksha 开业推广',
+        rakshaDesc: 'Raksha开业活动的推广活动内容。',
+        behance: '在Behance上查看作品集',
+        dribbble: 'Dribbble上的创意作品',
+      },
+    },
+    experience: {
+      heading: '经历',
       current: {
         title: 'Fulva by Calicut Cousins 社交媒体与网红营销',
         status: '现任职位',
@@ -541,11 +588,6 @@ export const translations: Record<Language, Translation> = {
         title: '核心技能',
         status: '专业领域',
         items: ['社交媒体营销', '网红策略', '创意策略', '内容策略', '品牌增长', '平面设计', 'Figma'],
-      },
-      projects: {
-        title: '精选项目',
-        behance: '在Behance上查看作品集',
-        dribbble: 'Dribbble上的创意作品',
       },
     },
     personal: {

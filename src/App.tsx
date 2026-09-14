@@ -2,6 +2,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { useLanguage } from './contexts/LanguageContext';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
+const ExperienceSection = lazy(() => import('./components/ExperienceSection'));
 const WorkSection = lazy(() => import('./components/WorkSection'));
 const PersonalSection = lazy(() => import('./components/PersonalSection'));
 const ContactSection = lazy(() => import('./components/ContactSection'));
@@ -12,6 +13,7 @@ function App() {
 
   const navigationItems = [
     { id: 'about', label: t('nav.about') },
+    { id: 'experience', label: t('nav.experience') },
     { id: 'work', label: t('nav.work') },
     { id: 'personal', label: t('nav.personal') },
     { id: 'contact', label: t('nav.contact') }
@@ -19,7 +21,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'work', 'personal', 'contact'];
+      const sections = ['about', 'experience', 'work', 'personal', 'contact'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -121,6 +123,11 @@ function App() {
               </div>
             </div>
           </section>
+
+          {/* Experience */}
+          <Suspense fallback={<div className="py-8"><div className="max-w-2xl h-96 animate-pulse bg-gray-50 rounded-lg"></div></div>}>
+            <ExperienceSection />
+          </Suspense>
 
           {/* Work */}
           <Suspense fallback={<div className="py-8"><div className="max-w-2xl h-96 animate-pulse bg-gray-50 rounded-lg"></div></div>}>
