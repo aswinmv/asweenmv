@@ -15,9 +15,11 @@ export default function WorkSection() {
             <div className="space-y-4">
               <div className="group">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/p/DVdi5nAEnPC/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
-                  aria-label="View Raksha Inauguration Promo project"
+                  aria-label="View Raksha Ayurcare inauguration promo on Instagram (opens in new tab)"
                 >
                   <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                   <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
