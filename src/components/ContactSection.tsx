@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Mail } from 'lucide-react';
+import { ArrowUpRight, Mail, Instagram } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ContactSection() {
@@ -10,7 +10,7 @@ export default function ContactSection() {
     e.preventDefault();
     const subject = encodeURIComponent(`Portfolio contact from ${formData.name}`);
     const body = encodeURIComponent(`${formData.message}\n\n— ${formData.name} (${formData.email})`);
-    window.location.href = `mailto:work@aswinmv.in?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:aswinmv7@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -81,13 +81,26 @@ export default function ContactSection() {
             <p className="text-sm text-gray-600 mb-4">{t('contact.connect')}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="mailto:work@aswinmv.in"
+                href="mailto:aswinmv7@gmail.com"
                 className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
                 aria-label={t('contact.email')}
               >
                 <Mail size={18} aria-hidden="true" />
                 <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
-                  work@aswinmv.in
+                  aswinmv7@gmail.com
+                </span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/asween.core/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded-sm px-1 py-1"
+                aria-label="Visit Instagram profile (opens in new tab)"
+              >
+                <Instagram size={18} aria-hidden="true" />
+                <span className="border-b border-gray-300 group-hover:border-gray-600 transition-colors duration-200">
+                  Instagram
                 </span>
               </a>
 

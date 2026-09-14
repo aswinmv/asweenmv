@@ -1,4 +1,4 @@
-Contact: security@aswinmv.in
+Contact: aswinmv7@gmail.com
 Expires: 2027-08-21T00:00:00.000Z
 Preferred-Languages: en
 Canonical: https://aswinmv.in/.well-known/security.txt

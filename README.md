@@ -26,7 +26,7 @@ Live site: https://aswinmv.in
 - Open Graph + Twitter Card meta tags for rich social sharing previews
 
 ## Contact
-- Email: work@aswinmv.in
+- Email: aswinmv7@gmail.com
 - LinkedIn: https://www.linkedin.com/in/aswinmv-/
 - Behance: https://behance.net/aswinmv
 - Dribbble: https://dribbble.com/aswinmv

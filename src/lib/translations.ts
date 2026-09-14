@@ -81,7 +81,7 @@ export const translations: Record<Language, Translation> = {
         error: 'Something went wrong. Please try again or email me directly.',
       },
       connect: 'Or connect with me on:',
-      email: 'Send email to work@aswinmv.in',
+      email: 'Send email to aswinmv7@gmail.com',
     },
     footer: {
       copyright: `© {year} Aswin MV. All rights reserved.`,
@@ -164,7 +164,7 @@ export const translations: Record<Language, Translation> = {
         error: 'Algo salió mal. Por favor intenta de nuevo o envíame un correo directamente.',
       },
       connect: 'O conéctate conmigo en:',
-      email: 'Enviar correo a work@aswinmv.in',
+      email: 'Enviar correo a aswinmv7@gmail.com',
     },
     footer: {
       copyright: `© {year} Aswin MV. Todos los derechos reservados.`,
@@ -247,7 +247,7 @@ export const translations: Record<Language, Translation> = {
         error: 'Une erreur s\'est produite. Veuillez réessayer ou m\'envoyer un e-mail directement.',
       },
       connect: 'Ou connectez-vous avec moi sur :',
-      email: 'Envoyer un e-mail à work@aswinmv.in',
+      email: 'Envoyer un e-mail à aswinmv7@gmail.com',
     },
     footer: {
       copyright: `© {year} Aswin MV. Tous les droits réservés.`,
@@ -330,7 +330,7 @@ export const translations: Record<Language, Translation> = {
         error: 'Etwas ist schief gelaufen. Bitte versuchen Sie es erneut oder senden Sie mir eine E-Mail.',
       },
       connect: 'Oder verbinden Sie sich mit mir auf:',
-      email: 'E-Mail an work@aswinmv.in senden',
+      email: 'E-Mail an aswinmv7@gmail.com senden',
     },
     footer: {
       copyright: `© {year} Aswin MV. Alle Rechte vorbehalten.`,
@@ -413,7 +413,7 @@ export const translations: Record<Language, Translation> = {
         error: 'Algo deu errado. Por favor tente novamente ou envie-me um e-mail diretamente.',
       },
       connect: 'Ou conecte-se comigo em:',
-      email: 'Enviar e-mail para work@aswinmv.in',
+      email: 'Enviar e-mail para aswinmv7@gmail.com',
     },
     footer: {
       copyright: `© {year} Aswin MV. Todos os direitos reservados.`,
@@ -496,7 +496,7 @@ export const translations: Record<Language, Translation> = {
         error: '問題が発生しました。もう一度試すか、直接メールをしてください。',
       },
       connect: 'または、以下のプラットフォームで私とつながってください：',
-      email: 'work@aswinmv.inにメールを送信',
+      email: 'aswinmv7@gmail.comにメールを送信',
     },
     footer: {
       copyright: `© {year} Aswin MV。著作権所有。`,
@@ -579,7 +579,7 @@ export const translations: Record<Language, Translation> = {
         error: '出错了。请重试或直接给我发送电子邮件。',
       },
       connect: '或在以下平台与我联系：',
-      email: '向 work@aswinmv.in 发送电子邮件',
+      email: '向 aswinmv7@gmail.com 发送电子邮件',
     },
     footer: {
       copyright: `© {year} Aswin MV。版权所有。`,
