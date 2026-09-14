@@ -6,63 +6,48 @@ export default function ExperienceSection() {
   return (
     <section id="experience" className="py-8" aria-labelledby="experience-heading">
       <div className="max-w-2xl">
-        <h2 id="experience-heading" className="text-2xl font-semibold text-gray-900 mb-8">{t('experience.heading')}</h2>
+        <h2 id="experience-heading" className="text-2xl font-semibold text-gray-900 mb-8">
+          {t('experience.heading')}
+        </h2>
 
-        <div className="space-y-8">
-          <article className="border-l-2 border-gray-200 pl-6">
-            <div className="mb-4">
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                {t('experience.current.title')}
-              </h3>
-              <p className="text-sm text-gray-600 mb-3">{t('experience.current.status')}</p>
-              <p className="text-gray-700 leading-relaxed">
-                {t('experience.current.description')}
-              </p>
-            </div>
-          </article>
+        <div className="rounded-xl border border-gray-200 bg-white px-6 sm:px-8 shadow-sm">
+          <div className="relative py-7">
+            <div className="absolute left-5 top-20 bottom-0 w-px bg-gray-200" aria-hidden="true" />
 
-          <article className="border-l-2 border-gray-200 pl-6">
-            <div className="mb-4">
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                {t('experience.previous.title')}
-              </h3>
-              <p className="text-sm text-gray-600 mb-3">{t('experience.previous.status')}</p>
-              <p className="text-gray-700 leading-relaxed">
-                {t('experience.previous.description')}
-              </p>
-            </div>
-          </article>
-
-          <article className="border-l-2 border-gray-200 pl-6">
-            <div className="mb-4">
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                {t('experience.freelance.title')}
-              </h3>
-              <p className="text-sm text-gray-600 mb-3">{t('experience.freelance.status')}</p>
-              <p className="text-gray-700 leading-relaxed">
-                {t('experience.freelance.description')}
-              </p>
-            </div>
-          </article>
-
-          <article className="border-l-2 border-gray-200 pl-6">
-            <div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                {t('experience.skills.title')}
-              </h3>
-              <p className="text-sm text-gray-600 mb-3">{t('experience.skills.status')}</p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {t('experience.skills.items').map((skill: string) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 bg-gray-50 text-gray-700 text-sm rounded-full border border-gray-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
+            <article className="relative flex gap-5 pb-8">
+              <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+                <img
+                  src="/images/image copy.png"
+                  alt="Fulva logo"
+                  className="h-full w-full object-cover"
+                />
               </div>
-            </div>
-          </article>
+              <div className="min-w-0 pt-0.5">
+                <h3 className="text-lg font-semibold leading-tight text-gray-900">
+                  Social Media Manager
+                </h3>
+                <p className="mt-1 text-base text-gray-700">Fulva | by Calicut Cousins</p>
+                <p className="mt-1 text-sm text-gray-500">{t('experience.current.status')}</p>
+              </div>
+            </article>
+
+            <article className="relative flex gap-5">
+              <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+                <img
+                  src="/images/image copy 2.png"
+                  alt="Whoots logo"
+                  className="h-full w-full object-contain p-1"
+                />
+              </div>
+              <div className="min-w-0 pt-0.5">
+                <h3 className="text-lg font-semibold leading-tight text-gray-900">
+                  Creative Strategist
+                </h3>
+                <p className="mt-1 text-base text-gray-700">Whoots</p>
+                <p className="mt-1 text-sm text-gray-500">{t('experience.previous.status')}</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
