@@ -6,6 +6,7 @@ const ExperienceSection = lazy(() => import('./components/ExperienceSection'));
 const WorkSection = lazy(() => import('./components/WorkSection'));
 const PersonalSection = lazy(() => import('./components/PersonalSection'));
 const ContactSection = lazy(() => import('./components/ContactSection'));
+const NewsletterSection = lazy(() => import('./components/NewsletterSection'));
 
 function App() {
   const { t } = useLanguage();
@@ -137,6 +138,11 @@ function App() {
           {/* Personal */}
           <Suspense fallback={<div className="py-8"><div className="max-w-2xl h-64 animate-pulse bg-gray-50 rounded-lg"></div></div>}>
             <PersonalSection />
+          </Suspense>
+
+          {/* Newsletter */}
+          <Suspense fallback={<div className="py-8"><div className="max-w-2xl h-64 animate-pulse bg-gray-50 rounded-lg"></div></div>}>
+            <NewsletterSection />
           </Suspense>
 
           {/* Contact */}
